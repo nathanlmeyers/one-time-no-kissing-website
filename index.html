@@ -78,9 +78,23 @@
     .otnk-cta:hover { filter: brightness(1.18); transform: translateY(-1px); }
     .otnk-cta-outline { transition: background .15s ease, transform .15s ease; }
     .otnk-cta-outline:hover { background: rgba(0,0,0,0.04); transform: translateY(-1px); }
+    .otnk-nav { display: flex; }
     .otnk-nav a { cursor: pointer; transition: color .15s ease; text-decoration: none; color: inherit; }
     .otnk-nav a:hover { color: var(--ink); }
     .otnk-cta:focus-visible, .otnk-cta-outline:focus-visible, .otnk-nav a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+    /* Mobile menu toggle (hamburger) — hidden by default, shown at mobile via container query */
+    .otnk-menu-toggle {
+      display: none;
+      background: transparent;
+      border: 0;
+      padding: 10px;
+      margin: -10px;
+      color: var(--ink);
+      cursor: pointer;
+      line-height: 0;
+    }
+    .otnk-menu-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
     .otnk-cover { transition: transform .3s ease, box-shadow .3s ease; }
     @media (hover: hover) {
       .otnk-cover:hover { transform: translateY(-4px) rotate(-.6deg); }
@@ -115,7 +129,6 @@
       --about-cols: 1fr 2fr;
       --about-figure-cols: 200px 1fr;
       --about-h-size: 56px;
-      --nav-display: flex;
       --header-pad: 28px 56px;
       --footer-pad: 24px 56px;
       --footer-direction: row;
@@ -158,7 +171,6 @@
         --email-h-size: 26px;
         --about-figure-cols: 1fr;
         --about-h-size: 40px;
-        --nav-display: none;
         --header-pad: 18px 20px;
         --footer-pad: 18px 20px;
         --footer-direction: column;
@@ -170,6 +182,21 @@
         height: auto !important;
         justify-self: center;
       }
+      /* Hamburger appears, nav becomes a togglable dropdown panel */
+      .otnk-menu-toggle { display: inline-flex; }
+      .otnk-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0; right: 0;
+        flex-direction: column;
+        background: #ffffff;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        padding: 12px 20px 20px;
+        gap: 18px;
+      }
+      .otnk-menu-toggle[aria-expanded="true"] + .otnk-nav { display: flex; }
+      .otnk-nav a { padding: 8px 0; font-size: 14px; }
     }
 
     @container (max-width: 900px) {
@@ -182,9 +209,14 @@
   <div class="otnk-frame">
     <div class="otnk-root" style="width:100%; min-height:100%; background:#ffffff; position:relative;">
 
-      <header style="position:relative; z-index:2; display:flex; justify-content:space-between; align-items:center; padding:var(--header-pad); border-bottom:1px solid rgba(0,0,0,0.08); background:#ffffff;">
+      <header style="position:sticky; top:0; z-index:10; display:flex; justify-content:space-between; align-items:center; padding:var(--header-pad); border-bottom:1px solid rgba(0,0,0,0.08); background:#ffffff;">
         <div style="font-family:var(--display); font-size:18px; font-weight:700; letter-spacing:-.01em;">David Meyers</div>
-        <nav class="otnk-nav" aria-label="Page sections" style="display:var(--nav-display); gap:28px; font-size:13px; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase;">
+        <button class="otnk-menu-toggle" type="button" aria-expanded="false" aria-controls="otnk-nav" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <nav id="otnk-nav" class="otnk-nav" aria-label="Page sections" style="gap:28px; font-size:13px; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase;">
           <a href="#book">The Book</a>
           <a href="#praise">Praise</a>
           <a href="#about">About</a>
@@ -344,6 +376,28 @@
   <script>
     // Auto-update year
     document.getElementById('otnk-year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    (function () {
+      var toggle = document.querySelector('.otnk-menu-toggle');
+      var nav = document.getElementById('otnk-nav');
+      if (!toggle || !nav) return;
+
+      function setOpen(open) {
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      }
+
+      toggle.addEventListener('click', function () {
+        setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+      });
+      nav.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') setOpen(false);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false);
+      });
+    })();
 
     // Pre-order email form — placeholder handler until issue #2 wires up Resend.
     // Validates locally, shows ack, clears input. Does not yet POST to any backend.
