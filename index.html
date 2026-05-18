@@ -520,6 +520,8 @@
                 <label for="otnk-email-input" class="sr-only">Your email address</label>
                 <input id="otnk-email-input" name="email" type="email" required placeholder="you@example.com" autocomplete="email"
                        style="flex:1; padding:14px 16px; font-size:16px; font-family:inherit; background:#ffffff; color:#1a120b; border:1px solid rgba(0,0,0,0.18); border-right:none; border-radius:0; outline:none; min-width:0;" />
+                <input type="text" name="_hp" tabindex="-1" autocomplete="off" aria-hidden="true"
+                       style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;" />
                 <button type="submit" style="padding:14px 22px; font-size:14px; font-family:inherit; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; background:var(--accent); color:#fdf5e2; border:1px solid var(--accent); border-radius:0; cursor:pointer;">
                   Notify Me
                 </button>
@@ -623,27 +625,60 @@
       });
     })();
 
-    // Pre-order email form — placeholder handler until issue #2 wires up Resend.
-    // Validates locally, shows ack, clears input. Does not yet POST to any backend.
+    // Pre-order signup — POSTs the email to a Google Apps Script web app that
+    // appends it to a Google Sheet. Set OTNK_SIGNUP_ENDPOINT to the deployed
+    // web-app URL. While it's empty the form still acknowledges locally so the
+    // page never breaks before the endpoint is wired.
+    var OTNK_SIGNUP_ENDPOINT = "https://script.google.com/macros/s/AKfycbxEmQYPdG-vJ-psJYbAMaf0-L7uUfgOcwZkyo33JS8bLDNX-koopy-mTpmT2QAa2IYnqg/exec";
     document.querySelectorAll('form.otnk-email').forEach(function (form) {
       var input = form.querySelector('input[type=email]');
       var button = form.querySelector('button[type=submit]');
       var status = form.parentElement.querySelector('.otnk-form-status');
+      var honeypot = form.querySelector('input[name="_hp"]');
       var originalLabel = button.textContent;
+      var busy = false;
+
+      function reset(delay) {
+        setTimeout(function () {
+          button.textContent = originalLabel;
+          status.textContent = "";
+          busy = false;
+        }, delay);
+      }
+      function acknowledge() {
+        button.textContent = "✓ Got it";
+        status.textContent = "Thanks — we'll email you when pre-orders open.";
+        input.value = "";
+        reset(4000);
+      }
+
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        if (!input.value || input.value.indexOf('@') === -1) {
+        if (busy) return;
+        var email = (input.value || '').trim();
+        if (!email || email.indexOf('@') < 1 || email.lastIndexOf('.') < email.indexOf('@')) {
           status.textContent = "Please enter a valid email address.";
           input.focus();
           return;
         }
-        button.textContent = "✓ Got it";
-        status.textContent = "Thanks — we'll email you when pre-orders open.";
-        input.value = "";
-        setTimeout(function () {
+        if (honeypot && honeypot.value) return; // bot trap — silently ignore
+
+        busy = true;
+        if (!OTNK_SIGNUP_ENDPOINT) { acknowledge(); return; } // not wired yet
+
+        button.textContent = "…";
+        status.textContent = "";
+        fetch(OTNK_SIGNUP_ENDPOINT, {
+          method: "POST",
+          mode: "no-cors",
+          body: new URLSearchParams({ email: email, source: location.href })
+        }).then(function () {
+          acknowledge();
+        }).catch(function () {
           button.textContent = originalLabel;
-          status.textContent = "";
-        }, 4000);
+          status.textContent = "Something went wrong — please try again.";
+          busy = false;
+        });
       });
     });
 
