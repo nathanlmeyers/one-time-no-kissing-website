@@ -1,0 +1,382 @@
+:root {
+  --display: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --body-font: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+  --ink: #0d0a06;
+  --muted: #6a604f;
+  --accent: #7a3a1a;
+}
+html, body { margin: 0; height: 100%; background: #ffffff; font-family: var(--body-font); color: var(--ink); }
+html { scroll-behavior: smooth; }
+* { box-sizing: border-box; }
+body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* Visually-hidden but available to assistive tech */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* book site polish */
+.otnk-cta { transition: filter .15s ease, transform .15s ease, background .15s ease; }
+.otnk-cta:hover { filter: brightness(1.18); transform: translateY(-1px); }
+.otnk-cta-outline { transition: background .15s ease, transform .15s ease; }
+.otnk-cta-outline:hover { background: rgba(0,0,0,0.04); transform: translateY(-1px); }
+.otnk-nav { display: flex; align-items: center; }
+.otnk-nav a { cursor: pointer; transition: color .15s ease; text-decoration: none; color: inherit; }
+.otnk-nav a:hover { color: var(--ink); }
+.otnk-cta:focus-visible, .otnk-cta-outline:focus-visible, .otnk-nav a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+/* Boxed Pre-order nav link */
+.otnk-nav a.otnk-nav-cta {
+  border: 1px solid var(--ink);
+  padding: 8px 16px;
+  border-radius: 0;
+  color: var(--ink);
+  transition: background-color .2s ease, color .2s ease;
+}
+.otnk-nav a.otnk-nav-cta:hover { background: var(--ink); color: #fff; }
+.otnk-nav a.otnk-nav-cta::after { display: none; }
+
+/* Active page indicator */
+.otnk-nav a[aria-current="page"] { color: var(--ink); }
+.otnk-nav a[aria-current="page"]::after { transform: scaleX(1); }
+
+/* Mobile menu toggle (hamburger) — hidden by default, shown at mobile via container query */
+.otnk-menu-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  padding: 10px;
+  margin: -10px;
+  color: var(--ink);
+  cursor: pointer;
+  line-height: 0;
+}
+.otnk-menu-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+/* ---- 3D book: watertight cuboid (stable, no per-pixel parallax) ---- */
+.hero-rise.d6 { perspective: 1600px; perspective-origin: 50% 44%; }
+.otnk-cover {
+  position: relative;
+  transform-style: preserve-3d;
+  /* exact box dimensions from the cover art (1154 x 1767) */
+  --bw: var(--cover-w);
+  --bh: calc(var(--cover-w) * 1767 / 1154);
+  --bd: var(--book-depth);
+  --book-ry: 29deg;
+  --book-rx: 4deg;
+  transform: rotateX(var(--book-rx)) rotateY(var(--book-ry));
+  transition: transform .5s cubic-bezier(.22,1,.36,1);
+}
+/* every face is centred on the cube centre, then pushed out by a half-extent */
+.otnk-cover > img,
+.otnk-edge {
+  position: absolute;
+  backface-visibility: hidden;
+  outline: 1px solid transparent; /* kills sub-pixel seam shimmer */
+}
+.otnk-cover > img {
+  inset: 0;
+  transform: translateZ(calc(var(--bd) / 2));
+  box-shadow: 0 0 0 1px rgba(20,14,6,0.06);
+}
+/* soft contact shadow below the book (laid flat so it stays grounded) */
+.otnk-cover::before {
+  content: "";
+  position: absolute;
+  left: 2%; right: 2%; bottom: -4%;
+  height: 9%;
+  background: radial-gradient(ellipse at center, rgba(20,14,6,0.42), rgba(20,14,6,0) 72%);
+  filter: blur(13px);
+  transform: translateZ(calc(var(--bd) / -2));
+  pointer-events: none;
+}
+.otnk-edge {
+  background-color: #e7ddc6;
+  background-image: repeating-linear-gradient(0deg, rgba(20,14,6,0.13) 0 1px, rgba(255,255,255,0) 1px 3px);
+}
+/* fore-edge (right) & spine (left): D wide, full height, centred then swung out */
+.otnk-edge-fore, .otnk-edge-spine {
+  top: 0; left: 50%; height: 100%;
+  width: calc(var(--bd) + 1px);
+  margin-left: calc((var(--bd) + 1px) / -2);
+}
+.otnk-edge-fore  { transform: rotateY(90deg)  translateZ(calc(var(--bw) / 2)); }
+.otnk-edge-spine { transform: rotateY(-90deg) translateZ(calc(var(--bw) / 2)); }
+/* top & bottom: D tall, full width, centred then swung out */
+.otnk-edge-top, .otnk-edge-bottom {
+  left: 0; top: 50%; width: 100%;
+  height: calc(var(--bd) + 1px);
+  margin-top: calc((var(--bd) + 1px) / -2);
+  background-image: repeating-linear-gradient(90deg, rgba(20,14,6,0.11) 0 1px, rgba(255,255,255,0) 1px 3px);
+}
+.otnk-edge-top    { transform: rotateX(90deg)  translateZ(calc(var(--bh) / 2)); }
+.otnk-edge-bottom { transform: rotateX(-90deg) translateZ(calc(var(--bh) / 2)); }
+/* spine — white, with the title in one line */
+.otnk-edge-spine {
+  background-color: #f7f2e7;
+  background-image: linear-gradient(90deg, rgba(20,14,6,0.14), rgba(20,14,6,0) 30%, rgba(20,14,6,0) 70%, rgba(20,14,6,0.12));
+  box-shadow: inset 0 0 0 1px rgba(20,14,6,0.10);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+/* solid back so the book is never see-through */
+.otnk-edge-back {
+  inset: 0;
+  transform: rotateY(180deg) translateZ(calc(var(--bd) / 2));
+  background-color: #efe7d5;
+  background-image: none;
+}
+.otnk-edge-spine span {
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: calc(var(--book-depth) * 0.46);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.otnk-form-status { font-size: 14px; color: var(--accent); margin-top: 10px; min-height: 1.2em; }
+.otnk-footer-link { color: inherit; text-decoration: none; }
+.otnk-footer-link:hover { color: var(--ink); }
+
+/* ============================================================
+   RESPONSIVE — container queries
+   .otnk-frame is the container; .otnk-root is its descendant
+   ============================================================ */
+.otnk-frame { container-type: inline-size; width: 100%; min-height: 100%; }
+.otnk-root {
+  --pad-x: 56px;
+  --hero-cols: 1.2fr 1fr;
+  --hero-gap: 48px;
+  --hero-pad: 60px var(--pad-x) 64px;
+  --hero-align: center;
+  --title-size: 86px;
+  --subtitle-size: 24px;
+  --body-size: 20px;
+  --cover-w: 440px;
+  --book-depth: 42px;
+  --cover-justify: center;
+  --cover-order: 0;
+  --section-pad-x: var(--pad-x);
+  --email-card-pad: 36px 48px;
+  --email-cols: 1fr 1.2fr;
+  --email-h-size: 38px;
+  --praise-cols: repeat(3, 1fr);
+  --about-cols: 1fr 2fr;
+  --about-figure-cols: 200px 1fr;
+  --about-h-size: 56px;
+  --header-pad: 28px 56px;
+  --footer-pad: 24px 56px;
+  --footer-direction: row;
+}
+
+/* Tablet */
+@container (max-width: 900px) {
+  .otnk-root {
+    --pad-x: 36px;
+    --hero-cols: 1fr;
+    --hero-gap: 36px;
+    --hero-pad: 44px var(--pad-x) 52px;
+    --hero-align: start;
+    --title-size: 68px !important;
+    --cover-w: 320px !important;
+    --book-depth: 34px;
+    --cover-justify: center;
+    --cover-order: -1;
+    --email-card-pad: 32px;
+    --email-cols: 1fr;
+    --email-h-size: 32px;
+    --praise-cols: 1fr;
+    --about-cols: 1fr;
+    --about-h-size: 48px;
+    --header-pad: 22px 36px;
+    --footer-pad: 22px 36px;
+  }
+}
+
+/* Mobile */
+@container (max-width: 540px) {
+  .otnk-root {
+    --pad-x: 20px;
+    --hero-pad: 28px var(--pad-x) 36px;
+    --hero-gap: 28px;
+    --title-size: 44px !important;
+    --subtitle-size: 19px;
+    --body-size: 17px;
+    --cover-w: 240px !important;
+    --book-depth: 26px;
+    --email-card-pad: 24px;
+    --email-h-size: 26px;
+    --about-figure-cols: 1fr;
+    --about-h-size: 40px;
+    --header-pad: 18px 20px;
+    --footer-pad: 18px 20px;
+    --footer-direction: column;
+  }
+  .otnk-root .otnk-author-figure > div:first-child {
+    width: 100% !important;
+    max-width: 280px;
+    aspect-ratio: 200 / 248;
+    height: auto !important;
+    justify-self: center;
+  }
+  /* Hamburger appears, nav becomes a togglable dropdown panel */
+  .otnk-menu-toggle { display: inline-flex; }
+  .otnk-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #ffffff;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 12px 20px 20px;
+    gap: 18px;
+  }
+  .otnk-menu-toggle[aria-expanded="true"] + .otnk-nav { display: flex; }
+  .otnk-nav a { padding: 8px 0; font-size: 14px; }
+  .otnk-nav a.otnk-nav-cta { padding: 8px 16px; }
+}
+
+@container (max-width: 900px) {
+  .otnk-praise-card { border-right: none !important; }
+  .otnk-praise-card:not(:last-child) { border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 28px; margin-bottom: 28px; }
+}
+
+/* ============================================================
+   MOTION LAYER — refined polish (progressive enhancement)
+   Hidden-before-reveal states are scoped to html.otnk-js, set by
+   a head script, so a no-JS visitor always sees the full page.
+   ============================================================ */
+
+/* Anchor fix: sticky header no longer overlaps jumped-to sections */
+#book, #praise, #about, #preorder { scroll-margin-top: 92px; }
+
+/* Hero load reveal — CSS only, staggered */
+html.otnk-js .hero-rise {
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: otnkRise .9s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes otnkRise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+html.otnk-js .d1 { animation-delay: .05s; }
+html.otnk-js .d2 { animation-delay: .16s; }
+html.otnk-js .d3 { animation-delay: .27s; }
+html.otnk-js .d4 { animation-delay: .38s; }
+html.otnk-js .d5 { animation-delay: .49s; }
+html.otnk-js .d6 { animation-delay: .60s; }
+
+/* Scroll-triggered reveals */
+html.otnk-js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  will-change: transform, opacity;
+}
+html.otnk-js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1);
+}
+/* Stagger the three praise cards as they enter together */
+html.otnk-js .otnk-praise-card.reveal:nth-child(2).is-visible { transition-delay: .12s; }
+html.otnk-js .otnk-praise-card.reveal:nth-child(3).is-visible { transition-delay: .24s; }
+
+/* Nav underline draw */
+.otnk-nav a { position: relative; }
+.otnk-nav a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -5px;
+  height: 1px; background: currentColor;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .32s cubic-bezier(.22,1,.36,1);
+}
+.otnk-nav a:hover::after, .otnk-nav a:focus-visible::after { transform: scaleX(1); }
+
+/* CTA arrow nudge */
+.otnk-arrow { display: inline-block; transition: transform .2s ease; }
+.otnk-cta:hover .otnk-arrow { transform: translateX(5px); }
+
+/* Email input focus ring */
+#otnk-email-input { transition: border-color .15s ease, box-shadow .15s ease; }
+#otnk-email-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(122,58,26,0.14);
+}
+
+/* Condensing sticky header on scroll */
+.otnk-root header {
+  transition: padding .28s ease, background-color .28s ease,
+              border-color .28s ease, box-shadow .28s ease;
+}
+html.otnk-js .otnk-root.scrolled header {
+  padding-top: 17px; padding-bottom: 17px;
+  background: rgba(255,255,255,0.82);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom-color: rgba(0,0,0,0.14);
+  box-shadow: 0 6px 26px -20px rgba(20,14,6,0.55);
+}
+@container (max-width: 540px) {
+  html.otnk-js .otnk-root.scrolled header { padding-top: 13px; padding-bottom: 13px; }
+}
+
+/* Hover: turn the book a little further to show more of the spine */
+.otnk-root.otnk-tilt .hero-rise.d6:hover .otnk-cover { --book-ry: 40deg; --book-rx: 3deg; }
+
+/* Living court: draw-in on load + scroll parallax (enabled by JS) */
+.otnk-root.otnk-court main > svg { transition: transform .1s linear; will-change: transform; }
+.otnk-root.otnk-court main > svg g {
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation: otnkCourtDraw 2.6s cubic-bezier(.22,1,.36,1) .15s forwards;
+}
+@keyframes otnkCourtDraw { to { stroke-dashoffset: 0; } }
+
+/* Hero CTAs: small "coming soon" corner badge */
+.otnk-badged { position: relative; }
+.otnk-soon {
+  position: absolute; top: -9px; right: -9px;
+  background: var(--accent); color: #fdf5e2;
+  font-family: var(--display); font-weight: 700;
+  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 3px 7px; border-radius: 2px; line-height: 1;
+  box-shadow: 0 4px 12px -6px rgba(20,14,6,0.55);
+  pointer-events: none; white-space: nowrap;
+}
+
+/* Single-column hero: center the Pre-Order / Goodreads buttons */
+@container (max-width: 900px) {
+  .hero-rise.d5 { justify-content: center; }
+}
+
+/* Email signup: stack input + button on narrow screens */
+@container (max-width: 540px) {
+  .otnk-email { flex-direction: column; gap: 10px; }
+  .otnk-email #otnk-email-input { border-right: 1px solid rgba(0,0,0,0.18) !important; }
+  .otnk-email button { width: 100%; }
+}
+
+/* Respect reduced-motion: no transforms, no animation, instant reveal */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  html.otnk-js .hero-rise,
+  html.otnk-js .reveal,
+  html.otnk-js .reveal.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  .otnk-nav a::after, .otnk-arrow,
+  .otnk-root header, #otnk-email-input { transition: none !important; }
+  /* keep the static 3D book, but no motion (hover doesn't turn it) */
+  .otnk-cover { transition: none !important; }
+  .otnk-root.otnk-tilt .hero-rise.d6:hover .otnk-cover { --book-ry: 29deg; --book-rx: 4deg; }
+  .otnk-root.otnk-court main > svg g { animation: none !important; stroke-dasharray: none !important; stroke-dashoffset: 0 !important; }
+}
