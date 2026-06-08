@@ -52,7 +52,7 @@
           <h1 class="reveal" style="font-family:var(--display); font-size:var(--about-h-size); font-weight:700; text-align:center; margin:0 0 44px; letter-spacing:-.005em;">
             What readers are saying.
           </h1>
-          <div style="display:grid; grid-template-columns:var(--praise-cols); gap:0;">
+          <div id="otnk-reviews" style="display:grid; grid-template-columns:var(--praise-cols); gap:0;">
             <div class="otnk-praise-card reveal" style="padding:0 32px; border-right:1px solid rgba(0,0,0,0.08);">
               <p style="font-size:17px; line-height:1.6; margin:0 0 20px; color:#23201b;">
                 One Time, No Kissing had me turning pages, smiling. A remarkable, funny, poignant, and heartfelt story of a high-school basketball team — diverse students all somehow getting along, getting a good education, forming their own opinions. The sport, the passion for it, and the execution of the game is a character all by itself.
@@ -86,6 +86,7 @@
     </div>
   </div>
 
+  <script src="reviews.js"></script>
   <script>
     // Auto-update year
     document.getElementById('otnk-year').textContent = new Date().getFullYear();
