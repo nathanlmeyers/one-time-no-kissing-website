@@ -300,7 +300,8 @@ html.otnk-js .otnk-praise-card.reveal:nth-child(3).is-visible { transition-delay
 
 /* CTA arrow nudge */
 .otnk-arrow { display: inline-block; transition: transform .2s ease; }
-.otnk-cta:hover .otnk-arrow { transform: translateX(5px); }
+.otnk-cta:hover .otnk-arrow,
+.otnk-cta-outline:hover .otnk-arrow { transform: translateX(5px); }
 
 /* Email input focus ring */
 #otnk-email-input { transition: border-color .15s ease, box-shadow .15s ease; }
