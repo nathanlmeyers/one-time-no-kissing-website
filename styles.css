@@ -380,3 +380,173 @@ html.otnk-js .otnk-root.scrolled header {
   .otnk-root.otnk-tilt .hero-rise.d6:hover .otnk-cover { --book-ry: 29deg; --book-rx: 4deg; }
   .otnk-root.otnk-court main > svg g { animation: none !important; stroke-dasharray: none !important; stroke-dashoffset: 0 !important; }
 }
+
+/* ============================================================
+   REVIEW TILES + EXPAND MODAL (built by reviews.js)
+   Reuses --praise-cols (3-up desktop → 1-up ≤900px). Square
+   corners, hairline dividers, tokens — per STYLE_GUIDE.md.
+   ============================================================ */
+
+/* Connected hairline grid: container draws top+left, tiles draw
+   right+bottom. Robust to any tile count (no empty-cell artifacts). */
+.otnk-review-grid {
+  display: grid;
+  grid-template-columns: var(--praise-cols);
+  border-top: 1px solid rgba(0,0,0,0.08);
+  border-left: 1px solid rgba(0,0,0,0.08);
+}
+.otnk-review-tile {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 30px 32px;
+  background: #ffffff;
+  border: 0;
+  border-right: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  color: inherit;
+  font-family: inherit;
+  text-align: left;
+}
+/* Interactive (expandable) tiles are real <button>s styled as cards. */
+.otnk-review-tile--button {
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: background-color .18s ease;
+}
+.otnk-review-tile--button:hover { background: #fbf9f4; }
+.otnk-review-tile--button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+.otnk-review-quote {
+  display: block;
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 0 0 20px;
+  color: #23201b;
+}
+.otnk-review-foot { display: block; margin-top: auto; }
+.otnk-review-name {
+  display: block;
+  font-family: var(--display);
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink);
+}
+.otnk-review-role {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+  font-style: italic;
+}
+.otnk-review-readmore {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--display);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--accent);
+}
+.otnk-review-tile--button:hover .otnk-review-readmore { text-decoration: underline; }
+
+/* Reveal stagger across rows (mod-3) — own rule, not the praise-card one */
+html.otnk-js .otnk-review-tile.reveal:nth-child(3n+2).is-visible { transition-delay: .08s; }
+html.otnk-js .otnk-review-tile.reveal:nth-child(3n+3).is-visible { transition-delay: .16s; }
+
+/* ---- Modal (injected as a direct <body> child; :root tokens only) ---- */
+.otnk-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  background: rgba(13,10,6,0.55);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  /* visibility flips immediately on open (0s) and only after the fade on close
+     (.28s delay) — so the panel is focusable the instant the modal opens. */
+  transition: opacity .28s cubic-bezier(.22,1,.36,1), visibility 0s linear .28s;
+}
+.otnk-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity .28s cubic-bezier(.22,1,.36,1), visibility 0s linear 0s;
+}
+.otnk-modal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 30px 80px -28px rgba(20,14,6,0.6);
+  padding: 52px 48px 44px;
+  transform: translateY(14px);
+  transition: transform .28s cubic-bezier(.22,1,.36,1);
+}
+.otnk-modal.is-open .otnk-modal-panel { transform: none; }
+.otnk-modal-panel:focus { outline: none; }
+.otnk-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 8px;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  line-height: 0;
+}
+.otnk-modal-close:hover { color: var(--ink); }
+.otnk-modal-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.otnk-modal-para {
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 0 0 18px;
+  color: #23201b;
+}
+.otnk-modal-para:last-child { margin-bottom: 0; }
+.otnk-modal-foot {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.otnk-modal-name {
+  font-family: var(--display);
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink);
+}
+.otnk-modal-role {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+  font-style: italic;
+}
+body.otnk-modal-open { overflow: hidden; }
+
+@media (max-width: 540px) {
+  .otnk-modal { padding: 14px; }
+  .otnk-modal-panel { padding: 44px 24px 30px; max-height: 90vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .otnk-modal,
+  .otnk-modal-panel { transition: none !important; }
+  .otnk-modal-panel { transform: none !important; }
+}

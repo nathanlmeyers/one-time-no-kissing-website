@@ -1,0 +1,4 @@
+# Raw, un-redacted review submissions used to build the Reviews page.
+# Kept local only — it contains third-party names/private content that must
+# not be published in the public repo or served from the site.
+/reviews/
