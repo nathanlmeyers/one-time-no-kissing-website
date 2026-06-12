@@ -22,7 +22,7 @@
     /* ---- the three reviews already on the site (kept first) ---- */
     {
       name: 'Dianne Dreyer',
-      title: 'Producer',
+      title: 'Producer and Screenwriter',
       // tile shows the punchy curated quote; modal shows the full review.
       preview: 'One Time, No Kissing had me turning pages, smiling. A remarkable, funny, poignant, and heartfelt story of a high-school basketball team — diverse students all somehow getting along, getting a good education, forming their own opinions. The sport, the passion for it, and the execution of the game is a character all by itself.',
       text: [
@@ -49,16 +49,25 @@
     /* ---- the newly collected reviews ---- */
     {
       name: 'Paul A. Smith',
-      title: 'Writer, Poet, Former Publishing Executive, and Dedicated Volunteer at Homeboy Industries',
+      title: 'Poet and Community Volunteer with Homeboy Industries in Los Angeles',
       text: [
         `When I got a copy of “One Time, No Kissing,” its basketball-themed cover led me to expect a hopefully engaging sports novel. In truth, it was certainly that, but it was so much more. In addition to the realistic, funny, rousing descriptions of lonely skill-building, hard but necessary practices, and highly interesting and suspenseful high school basketball games, the book touches upon many other important topics. It is set in 1969, a seminal year in America to be sure with Vietnam raging and the drug culture starting to affect many cities and young people. Those topics are admirably covered here, but the novel also depicts the effects of World War II and the Holocaust and the rich ethnic tapestry—warts and all—to be found in Pittsburgh and other American cities at the time. Yet it also brilliantly portrays the familial situations, friendships, conflicts with others, and the main character’s slowly budding interest in girls that virtually all adolescent boys must navigate. I found it fast-paced, funny, exciting, humane, and constantly interesting with a broad cast of characters diverse in age, cultural background, and personal story. It is the oxymoronic type of book that I wish there were more of—It reads very quickly, but at the end you wish it were twice as long because it’s been such fun.`
       ]
     },
     {
       name: 'Jodi Mitchel Tolman',
-      title: 'Author of One From Each Column',
+      title: 'Actress and Author of One From Each Column',
       text: [
         `One Time, No Kissing is an engrossing, compelling, and loving portrayal of coming of age at Pittsburgh’s Allderdice high school in the ‘70s. I couldn't put it down and read it twice in rapid succession. In this love letter to Pittsburgh and Squirrel Hill, where Meyers grew up, he brings both heartbreaking and hilarious characters to palpable life, one of the most dynamic of which is basketball. The game becomes as engaging as Troubles Schwartz, Doc, Louis, and a never-named girl who we want to know more and more about. And we experience the game as if we‘re a player, where the stakes and drama of each could not be higher. Masterfully woven into the narrative are themes of racism, poverty, antisemitism, parental neglect, the Viet Nam war and the Holocaust to poignant and powerful effect. I was hooked from the first pages and discovered scenes I wasn’t expecting around so many corners. I was quite sad coming to the end, knowing I had to leave Allderdice and all those who walked its halls.`
+      ]
+    },
+    {
+      name: 'Woody Woodward',
+      title: 'Venture Capital Investor',
+      text: [
+        `I have finished reading One Time, No Kissing. I greatly enjoyed Meyers sense of humor and I laughed out loud through the first half of the book. I enjoyed the whole book very much. In terms of genre, I guess one could call it a classic coming of age story, with high-school basketball serving as a metaphor for life. The way the author uses the genre to paint the interactions of the mélange of cultures trying to coexist in high school, in the neighborhoods, and on the team is sometimes charming and sometimes tense, but always engaging.`,
+        `At the same time, the author reminds us that the tension of high school does not end with high school by showing us the political stresses of the period. His teammate’s brother, seriously wounded in Vietnam (with hope for recovery: itself a metaphor for the political health of the country), who is himself conflicted between patriotism and disgust with the country’s leaders, comes to every game to cheer him on. David’s father, Doc, who is simultaneously distant from and very close to him, becomes a pawn of (typical) unscrupulous politicians who try to prosecute him for performing an abortion, simply for personal political gain.`,
+        `For some it might read more like a screenplay than a novel. Telling the story almost exclusively through dialog is a bit of a challenge, especially in the first few chapters. But, I found that, as I came to know the characters (I sometimes had to stop to remember who’s who), I felt that I was right in amongst them. Overall, I found the book to be charming, engaging, instructive (as a novel must be), and ultimately satisfying. I would recommend it as a Good Read.`
       ]
     },
     {
@@ -87,24 +96,17 @@
       ]
     },
     {
-      name: 'Anonymous',
+      name: 'Margot Roth',
+      title: 'Photographer and Author of 50 Naked Ladies',
       text: [
-        `I just finished Dave Meyers’s book, and thoroughly enjoyed it. When I first got it I was skeptical because the many short chapters and the relatively few words on each page. However, the different characters, the good basketball writing, and the range of interesting issues—Vietnam, race and ethnicity, coming of age, abortion, the shadows of WWII and The Holocaust—really hooked me. I’ve talked to L. about it, and will give him my copy. I must confess up front that neither of my boys has ever found any of my suggestions for movies based on books I’ve read at all interesting. I got a sort of “I-Told-You-So” about Yann Martel’s 15 years ago, when I told M. I had just read “Life of Pi” and found it a remarkable story. He didn’t get it (from my summary) and passed, and a few years later it won the Best Picture Oscar. L.’s company—which is now pretty much him and his long-time boss J.S. (a minority owner of the Chicago Bulls)—has over the years done documentaries on sports and politics and theater, a handful of feature films, and, of course, their Emmy-winning series, “Last Chance U,” which is 5 seasons on different community college football programs that try provide college athletes who have flamed out for some reason (grades, arrests, injuries, drugs, etc.) with one last chance to make it to Division 1 programs and maybe a shot at the NFL. After the 5 football seasons, they did two on a community college basketball program. Also, J.S.’s son S. is a graduate assistant coach at Nebraska. So, the basketball hook might be a useful one. Also, J.S. is Jewish so that could also be a factor. Let’s see what happens.`
+        `One Time, No Kissing is a masterpiece! The characters are so hilarious and distinctive. I loved the title. When I came to that bit of dialog that referenced the title I laughed out loud. I can’t tell you how much crying and laughing my husband and I did whilst reading the book out loud.`
       ]
     },
     {
-      name: 'Anonymous',
+      name: 'Jeff Cantin',
+      title: 'Environmental Consultant',
       text: [
-        `Dave wrote a book?  Dave wrote a book!`,
-        `This was quite a surprise. I scanned the cover, opened to a random page, and came across a passage about your dad being in trouble. That caught my attention, so I started reading. Finished it in one sitting!`,
-        `Did you keep a diary? How did you manage to recall all those details, names, places??`,
-        `So many characters! Great job bringing them to life.`,
-        `Your friend Louis was the star. Ragging the Chinese laundry guy for having a wrinkled shirt cracked me up. But you also have the drunken coach, Omi and Zondy, Ray Rat, Danny G.`,
-        `Some highlights for me: The Bergman twins! The late night junkyard tour! Assisting with a Caesarean! Groping the cheerleader/gymnast under the stands!`,
-        `Happy I didn't have to squirm through a scene where you lost your v-card though...`,
-        `Had to wait too long for the first “jagoff.”`,
-        `Loved your use of “You can look it up, but…”.`,
-        `Black Power!`
+        `I scanned the cover, opened to a random page, and came across a passage about Doc being in trouble. That caught my attention, so I started reading. Finished it in one sitting! So many characters! Great job bringing them to life. Louis was the star. Ragging the Chinese laundry guy for having a wrinkled shirt cracked me up. But you also have the drunken coach, Omi and Zondy, Ray Rat, Danny G. Some highlights for me: The Bergman twins! The late night junkyard tour! Assisting with a Caesarean! Groping the cheerleader/gymnast under the stands! Had to wait too long for the first “jagoff.” Loved your use of “You can look it up, but…”.`
       ]
     },
     {
