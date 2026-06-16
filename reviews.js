@@ -111,20 +111,15 @@
     {
       name: 'Anonymous',
       text: [
-        `Sorry to have taken so long to get back to you. I greatly enjoyed the book. You've created something special. J. feels the same way. As a highschool teacher for 35 years, she thought you nailed the voice of a teenage boy.`,
-        `It’s more a novella than novel, though I have described it as basketball fantasy, given the actual City League record of our team in 1970. I love the blend of real people with fiction, though I'd like to know more about Louis and Martha since I don't recognize them and could not imagine them based on people I knew. The closest I could come up with was D.K. and M.S., and they are not that close to your characters, though there may be more to D.K. than I know.`
+        `I greatly enjoyed One Time, No Kissing. David Meyers has created something very special. I loved the book and couldn’t put it down. As a high school teacher for 35 years, Meyers nailed the voice of a teenage boy.`,
+        `I love the blend of real people with fiction, though I’d like to know more about many of the characters because they were so fascinating. A great read and a great achievement.`
       ]
     },
     {
-      name: 'Anonymous',
+      name: 'William Siegal',
+      title: 'Gallery Owner/Art Historian, Santa Fe, New Mexico',
       text: [
-        `Hope you had a great Thanksgiving. You were a big part of mine as I read your book the last several nights with gusto.`,
-        `First off, your sense of detail and character development is wonderful. It was, of course, very easy for me to relate to many of the characters and places. I learned so much about cousin Trubs. I had no idea that he was a full time gambler and D Day survivor. I knew nothing about your dad and the abortion case. That must have happened when I was gone. I'm sure E., mom and the rest of the family were closely following it but somehow I missed it. I was aware of all of your moms political involvements. Your basketball successes also never made it to where I was. I knew you played but did not know Alderdice was a city champ with you at the helm, That must have been fabulous.`,
-        `Your development of the many characters is terrific! I kept trying to figure out if I knew them or their fathers. But, Squirrel Hill and East End were pretty far apart in many ways. Of course all of my cousins lived there and my fraternity played against the Sq, Hill fraternities with great animosity, not to mention the tennis rivalries`,
-        `The plot line of you and the guy that was after your position was also very familiar.`,
-        `I was the last guy cut when I tried out for Peabody varsity. I still remember the skinny black kid that got the position B.E. I thought about him many times and knew I was better. At least my 36 point intramural point record held up for something like 15 years.`,
-        `I could go on but, your awakening to Viet Nam and how people have so much in common if we just take the time to look....suffice to say, I greatly enjoyed what you have written and my only question is,`,
-        `So, what happens now?`
+        `In reading One Time, No Kissing, I immediately was struck by Meyers’ artful sense of detail and character development. I read the book in one sitting. It was very easy for me to relate to many of the characters and places as I also grew up in Pittsburgh. There were so many aspects of the book I enjoyed and appreciated, such as the main character’s awakening to the reality of Viet Nam and the theme that people have so much in common, if we just take the time to look. I could go on and on but like the narrator in the book I left it wondering “So what happens now.”`
       ]
     }
   ];
