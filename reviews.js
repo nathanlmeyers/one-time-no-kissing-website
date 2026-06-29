@@ -121,6 +121,19 @@
       text: [
         `In reading One Time, No Kissing, I immediately was struck by Meyers’ artful sense of detail and character development. I read the book in one sitting. It was very easy for me to relate to many of the characters and places as I also grew up in Pittsburgh. There were so many aspects of the book I enjoyed and appreciated, such as the main character’s awakening to the reality of Viet Nam and the theme that people have so much in common, if we just take the time to look. I could go on and on but like the narrator in the book I left it wondering “So what happens now.”`
       ]
+    },
+    {
+      name: 'Nell Hahn',
+      title: 'Civil Rights Attorney',
+      text: [
+        `I immediately loved it One Time, No Kissing from the very start. The characters are so funny and real! I love the way the boys talk to each other. The book really captures what it feels like to be a teenager among teenagers. I grew up in a very different world—the suburbs of Houston—and now live in South Louisiana, so the Pittsburgh world was very interesting and alluring. In addition to giving me a window into the strange world teenage boys, the book gave me a look inside a very diverse Pittsburgh neighborhood. I’m a retired civil rights lawyer and currently use my legal skills to help imprisoned immigrants. I appreciate the recurring theme in the book of people simply helping and caring about each other. Kudos to David Meyers for creating this wonderful book.`
+      ]
+    },
+    {
+      name: 'J.R. McNeill',
+      text: [
+        `One Time, No Kissing is a story, one that weaves together the challenges of coming of age, sports competition, and the social maze that everyone who attended high-school remembers. But it also brilliantly captures a moment in American history, as experienced in Pittsburgh in 1969-70. Race relations in American cities were at a low ebb. The country was souring on the Vietnam War and overseas adventurism, but deeply divided over what to do about it. Young people were often gleefully demonstrating their disdain for their elders. David Meyers’ novel is about ordinary young Americans trying to navigate both the extraordinary uncertainties and anxieties of the late 1960s and the timeless ones of school, friendship, rivalry, and what it means to be a team and a teammate. It is poignant, funny, and rings as true as can be. Those who remember those days will delight in the story and the way Meyers crafts his portrait. Those too young to remember will also delight in the story — and learn what it was like to be a young American the last time the country seemed to be falling apart.`
+      ]
     }
   ];
 
