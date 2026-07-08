@@ -5,8 +5,10 @@
  * fallback with the full interactive tile grid (preview + click-to-expand
  * modal). No-JS / crawler visitors keep the static cards.
  *
- * Data model — each review: { name, title?, text:[paragraphs], preview? }.
+ * Data model — each review: { name, title?, credits?, text:[paragraphs], preview? }.
  *  - `text` is an array of paragraphs (preserves multi-paragraph reviews).
+ *  - `credits` (optional) renders a second, lighter line below the title
+ *    (e.g. an author's notable publications).
  *  - `preview` (optional) overrides the auto ~100-word tile excerpt.
  *  - omit `title` for the "Anonymous" entries (no role line is rendered).
  *
@@ -32,17 +34,27 @@
       ]
     },
     {
-      name: 'W. D. Ehrhart',
-      title: 'Author, Vietnam-Perkasie: A Combat Marine Memoir',
+      name: 'John McNeill',
+      title: 'Professor of History, Georgetown University; Former President of the American Historical Association',
+      credits: 'Author of Something New Under the Sun: An Environmental History of the 20th-Century World, The Human Web: A Bird’s-eye View of World History',
       text: [
-        `If you came of age in the later 1960s and early '70s amid the turbulence of Vietnam, the antiwar movement, and the demands for civil rights and justice — this book will resonate deeply. For any thoughtful reader, Meyers offers a spellbinding story that is vibrant and alive, and deeply moving.`
+        `One Time, No Kissing is a story, one that weaves together the challenges of coming of age, sports competition, and the social maze that everyone who attended high-school remembers. But it also brilliantly captures a moment in American history, as experienced in Pittsburgh in 1969-70. Race relations in American cities were at a low ebb. The country was souring on the Vietnam War and overseas adventurism, but deeply divided over what to do about it. Young people were often gleefully demonstrating their disdain for their elders. David Meyers’ novel is about ordinary young Americans trying to navigate both the extraordinary uncertainties and anxieties of the late 1960s and the timeless ones of school, friendship, rivalry, and what it means to be a team and a teammate. It is poignant, funny, and rings as true as can be. Those who remember those days will delight in the story and the way Meyers crafts his portrait. Those too young to remember will also delight in the story — and learn what it was like to be a young American the last time the country seemed to be falling apart.`,
+        `Professor McNeill also offered a Shakespearean review:`,
+        `Hark! Attend this merry tale of youth, ambition, and hearts untried. One Time, No Kissing doth dribble and dart through the tempestuous courts of Iron City high school basketball, where victories are dear and growing up proves the greater contest still. Young swains discover that courage is measured not alone by points and play, but by the truths one dares speak and the person one dares become. Filled with longing and the sweet folly of adolescence, One Time, No Kissing is a spirited tale that reminds us all: though the joust may end with the final horn, the journey toward oneself is the noblest match of all.`
       ]
     },
     {
       name: 'Alan Paul',
       title: 'Best-selling author of One Way Out; Senior Basketball Writer, Slam',
       text: [
-        `This book brings to life the joy and wonder of youth. It's easy to forget how much fun it was to be in high school, but this book won't let you. Every page is filled with keen insight into the intensity of youthful relationships of all sorts.`
+        `This book brings to life the joy and wonder of youth. It's easy to forget how much fun it was to be in high school, but this book won't let you. Every page is filled with keen insight into the intensity of youthful relationships of all sorts: with best friends, crushes, teammates and teachers you love and hate. And at its core, the novel is about the virtue of kindness in a challenging world.`
+      ]
+    },
+    {
+      name: 'W. D. Ehrhart',
+      title: 'Author, Vietnam-Perkasie: A Combat Marine Memoir',
+      text: [
+        `If you came of age in the later 1960s and early '70s amid the turbulence of the Vietnam War, the antiwar movement, the demands for civil rights and justice for women, gays, and African Americans, and the clash between the Establishment and the Under-30 Generation, this book will resonate deeply with you. If you are too young to have experienced any of that, this book will help you understand how those times were. For any thoughtful reader, Meyers offers a spellbinding story that is vibrant and alive, and deeply moving.`
       ]
     },
 
@@ -130,9 +142,17 @@
       ]
     },
     {
-      name: 'J.R. McNeill',
+      name: 'Michael Minard',
+      title: 'Composer, Arranger, Music Performer',
       text: [
-        `One Time, No Kissing is a story, one that weaves together the challenges of coming of age, sports competition, and the social maze that everyone who attended high-school remembers. But it also brilliantly captures a moment in American history, as experienced in Pittsburgh in 1969-70. Race relations in American cities were at a low ebb. The country was souring on the Vietnam War and overseas adventurism, but deeply divided over what to do about it. Young people were often gleefully demonstrating their disdain for their elders. David Meyers’ novel is about ordinary young Americans trying to navigate both the extraordinary uncertainties and anxieties of the late 1960s and the timeless ones of school, friendship, rivalry, and what it means to be a team and a teammate. It is poignant, funny, and rings as true as can be. Those who remember those days will delight in the story and the way Meyers crafts his portrait. Those too young to remember will also delight in the story — and learn what it was like to be a young American the last time the country seemed to be falling apart.`
+        `One Time, No Kissing would be worth reading if only for the thrilling high school basketball sequences. But David Meyers’ Bildungsroman offers so much more: it’s an exploration of intense friendships and rivalries, with fresh and unpredictable dramatic moments throughout. And this novel delivers real wisdom. In the end, I felt I was “coming of age” along with the characters.`
+      ]
+    },
+    {
+      name: 'John Dorish',
+      title: 'Artist, New York City',
+      text: [
+        `To simply say I loved One Time, No Kissing would hardly be enough. Just this morning I started skimming over pages to refresh my memory to find a starting point and I ended up re-reading 25 pages. It’s a book I could easily read twice and I will certainly read it again. It’s such a great story on so many levels. The story, the characters, descriptive passages of people places and things. And the basketball is a story by itself. The characters are described so well that they become very real and familiar. Dave’s great pal Louis, the drunken coach, Lovener and the Imperials. and so many more. I loved reading about Pittsburgh. David Meyers novel One Time, No Kissing is a wonderful story to share with the world.`
       ]
     }
   ];
@@ -191,8 +211,10 @@
     var name = el('div', 'otnk-modal-name');
     name.id = 'otnk-modal-name';
     var role = el('div', 'otnk-modal-role');
+    var credits = el('div', 'otnk-modal-credits');
     foot.appendChild(name);
     foot.appendChild(role);
+    foot.appendChild(credits);
 
     panel.appendChild(close);
     panel.appendChild(body);
@@ -205,7 +227,7 @@
     });
     close.addEventListener('click', closeModal);
 
-    modalEls = { overlay: overlay, panel: panel, body: body, name: name, role: role };
+    modalEls = { overlay: overlay, panel: panel, body: body, name: name, role: role, credits: credits };
   }
 
   function onKeydown(e) {
@@ -223,6 +245,13 @@
     } else {
       modalEls.role.textContent = '';
       modalEls.role.hidden = true;
+    }
+    if (r.credits) {
+      modalEls.credits.textContent = r.credits;
+      modalEls.credits.hidden = false;
+    } else {
+      modalEls.credits.textContent = '';
+      modalEls.credits.hidden = true;
     }
 
     modalEls.body.textContent = '';
@@ -278,6 +307,7 @@
     var foot = el('span', 'otnk-review-foot');
     foot.appendChild(el('span', 'otnk-review-name', r.name));
     if (r.title) foot.appendChild(el('span', 'otnk-review-role', r.title));
+    if (r.credits) foot.appendChild(el('span', 'otnk-review-credits', r.credits));
     if (expandable) foot.appendChild(el('span', 'otnk-review-readmore', 'Read full review'));
     tile.appendChild(foot);
 

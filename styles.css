@@ -393,8 +393,8 @@ html.otnk-js .otnk-root.scrolled header {
 .otnk-review-grid {
   display: grid;
   grid-template-columns: var(--praise-cols);
-  border-top: 1px solid rgba(0,0,0,0.08);
-  border-left: 1px solid rgba(0,0,0,0.08);
+  border-top: 1px solid rgba(0,0,0,0.14);
+  border-left: 1px solid rgba(0,0,0,0.14);
 }
 .otnk-review-tile {
   display: flex;
@@ -403,8 +403,8 @@ html.otnk-js .otnk-root.scrolled header {
   padding: 30px 32px;
   background: #ffffff;
   border: 0;
-  border-right: 1px solid rgba(0,0,0,0.08);
-  border-bottom: 1px solid rgba(0,0,0,0.08);
+  border-right: 1px solid rgba(0,0,0,0.14);
+  border-bottom: 1px solid rgba(0,0,0,0.14);
   color: inherit;
   font-family: inherit;
   text-align: left;
@@ -442,6 +442,14 @@ html.otnk-js .otnk-root.scrolled header {
   color: var(--muted);
   margin-top: 4px;
   font-style: italic;
+}
+.otnk-review-credits {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 3px;
+  font-style: italic;
+  opacity: 0.85;
 }
 .otnk-review-readmore {
   display: inline-block;
@@ -538,6 +546,13 @@ html.otnk-js .otnk-review-tile.reveal:nth-child(3n+3).is-visible { transition-de
   color: var(--muted);
   margin-top: 4px;
   font-style: italic;
+}
+.otnk-modal-credits {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 3px;
+  font-style: italic;
+  opacity: 0.85;
 }
 body.otnk-modal-open { overflow: hidden; }
 
