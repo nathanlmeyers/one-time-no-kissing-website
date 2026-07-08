@@ -9,14 +9,13 @@ pickup games, civil rights, and the long shadow of Vietnam. Coming Fall 2026.
 
 ## Pages
 
-- **`index.html`** — Home: hero, synopsis, about the author, and pre-order form.
-- **`characters.html`** — Characters: the team and key figures from the novel.
-- **`reviews.html`** — Reviews: early praise and endorsements.
+- **`index.html`** — the whole site on one page: hero, synopsis, pre-order form,
+  about the author, and reviews. The header nav scrolls to sections.
 
 ## Project structure
 
-- `*.html` — the site's pages
-- `styles.css` — shared styles across all pages
+- `index.html` — the site's single page
+- `styles.css` — shared styles
 - `assets/` — cover art, author photo, and other images
 - `STYLE_GUIDE.md` — design system (colors, type, spacing) for contributors
 

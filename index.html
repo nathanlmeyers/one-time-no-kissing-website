@@ -55,18 +55,6 @@
 
   <link rel="stylesheet" href="styles.css" />
 
-  <style>
-    /* One-page site: the nav holds only the Pre-order CTA, so keep it inline
-       and always visible — no hamburger menu to expand on narrow screens. */
-    @container (max-width: 540px) {
-      .otnk-nav {
-        display: flex; position: static;
-        flex-direction: row; align-items: center;
-        background: none; border: none; padding: 0;
-      }
-    }
-  </style>
-
   <!-- Set the JS flag before first paint so pre-reveal states never flash -->
   <script>document.documentElement.classList.add('otnk-js');</script>
 </head>
@@ -76,7 +64,14 @@
 
       <header style="position:sticky; top:0; z-index:10; display:flex; justify-content:space-between; align-items:center; padding:var(--header-pad); border-bottom:1px solid rgba(0,0,0,0.08); background:#ffffff;">
         <div style="font-family:var(--display); font-size:18px; font-weight:700; letter-spacing:-.01em;">David Meyers</div>
-        <nav id="otnk-nav" class="otnk-nav" aria-label="Pages" style="gap:28px; font-size:13px; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase;">
+        <button class="otnk-menu-toggle" type="button" aria-expanded="false" aria-controls="otnk-nav" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <nav id="otnk-nav" class="otnk-nav" aria-label="Sections" style="gap:28px; font-size:13px; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase;">
+          <a href="#">Home</a>
+          <a href="#praise">Reviews</a>
           <a class="otnk-nav-cta" href="#preorder">Pre-order</a>
         </nav>
       </header>
@@ -169,38 +164,8 @@
           </div>
         </section>
 
-        <!-- Praise -->
-        <section id="praise" style="position:relative; z-index:1; padding:56px var(--section-pad-x);">
-          <h2 class="reveal" style="font-family:var(--display); font-size:40px; font-weight:700; text-align:center; margin:0 0 36px; letter-spacing:-.005em;">
-            What readers are saying.
-          </h2>
-          <div id="otnk-reviews" style="display:grid; grid-template-columns:var(--praise-cols); gap:0;">
-            <div class="otnk-praise-card reveal" style="padding:0 32px; border-right:1px solid rgba(0,0,0,0.08);">
-              <p style="font-size:17px; line-height:1.6; margin:0 0 20px; color:#23201b;">
-                One Time, No Kissing had me turning pages, smiling. A remarkable, funny, poignant, and heartfelt story of a high-school basketball team — diverse students all somehow getting along, getting a good education, forming their own opinions. The sport, the passion for it, and the execution of the game is a character all by itself.
-              </p>
-              <div style="font-family:var(--display); font-size:14px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700;">Dianne Dreyer</div>
-              <div style="font-size:13px; color:var(--muted); margin-top:4px; font-style:italic;">Producer</div>
-            </div>
-            <div class="otnk-praise-card reveal" style="padding:0 32px; border-right:1px solid rgba(0,0,0,0.08);">
-              <p style="font-size:17px; line-height:1.6; margin:0 0 20px; color:#23201b;">
-                If you came of age in the later 1960s and early '70s amid the turbulence of Vietnam, the antiwar movement, and the demands for civil rights and justice — this book will resonate deeply. For any thoughtful reader, Meyers offers a spellbinding story that is vibrant and alive, and deeply moving.
-              </p>
-              <div style="font-family:var(--display); font-size:14px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700;">W. D. Ehrhart</div>
-              <div style="font-size:13px; color:var(--muted); margin-top:4px; font-style:italic;">Author, Vietnam-Perkasie: A Combat Marine Memoir</div>
-            </div>
-            <div class="otnk-praise-card reveal" style="padding:0 32px;">
-              <p style="font-size:17px; line-height:1.6; margin:0 0 20px; color:#23201b;">
-                This book brings to life the joy and wonder of youth. It's easy to forget how much fun it was to be in high school, but this book won't let you. Every page is filled with keen insight into the intensity of youthful relationships of all sorts.
-              </p>
-              <div style="font-family:var(--display); font-size:14px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700;">Alan Paul</div>
-              <div style="font-size:13px; color:var(--muted); margin-top:4px; font-style:italic;">Best-selling author of One Way Out; Senior Basketball Writer, Slam</div>
-            </div>
-          </div>
-        </section>
-
         <!-- About -->
-        <section id="about" style="position:relative; z-index:1; padding:48px var(--section-pad-x) 72px; display:grid; grid-template-columns:var(--about-cols); gap:40px; align-items:start;">
+        <section id="about" style="position:relative; z-index:1; padding:48px var(--section-pad-x) 64px; display:grid; grid-template-columns:var(--about-cols); gap:40px; align-items:start;">
           <div class="reveal">
             <div style="font-size:12px; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); margin-bottom:14px; font-family:var(--display); font-weight:600;">
               About the Author
@@ -209,7 +174,7 @@
               David Meyers
             </h2>
             <div style="font-size:13px; color:var(--muted); font-style:italic; letter-spacing:.01em;">
-              Pittsburgh · Allderdice High, '72
+              Pittsburgh · Allderdice High, '69
             </div>
           </div>
           <div class="otnk-author-figure reveal" style="display:grid; grid-template-columns:var(--about-figure-cols); gap:32px;">
@@ -219,11 +184,44 @@
             </div>
             <div>
               <p style="font-size:18px; line-height:1.65; margin:0 0 10px; color:#23201b;">
-                David Meyers is the founder and CEO of a nationally recognized environmental consulting firm working in the public interest. He grew up playing pickup and high-school basketball in Pittsburgh, which inspired the stories and characters in the book. The author played for the '69 Allderdice Dragons.
+                David Meyers has worked for nearly fifty years helping all levels of government protect the environment and improve worker health and safety conditions. He grew up playing pickup and high school basketball in Pittsburgh, which inspired the stories and characters in the book.
               </p>
               <div style="font-size:12px; color:var(--muted); letter-spacing:0.08em; font-style:italic;">
-                Above: the author (with the ball), Allderdice High School, c. 1970.
+                The author breaking the press for the '69 Allderdice Dragons. Eyes Up!
               </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Divider: inset to match the review grid width below -->
+        <hr aria-hidden="true" style="border:0; border-top:1px solid rgba(0,0,0,0.14); margin:0 var(--section-pad-x); position:relative; z-index:1;" />
+
+        <!-- Praise -->
+        <section id="praise" style="position:relative; z-index:1; padding:56px var(--section-pad-x);">
+          <h2 class="reveal" style="font-family:var(--display); font-size:40px; font-weight:700; text-align:center; margin:0 0 36px; letter-spacing:-.005em;">
+            What readers are saying
+          </h2>
+          <div id="otnk-reviews" style="display:grid; grid-template-columns:var(--praise-cols); gap:0;">
+            <div class="otnk-praise-card reveal" style="padding:0 32px; border-right:1px solid rgba(0,0,0,0.08);">
+              <p style="font-size:17px; line-height:1.6; margin:0 0 20px; color:#23201b;">
+                One Time, No Kissing had me turning pages, smiling. A remarkable, funny, poignant, and heartfelt story of a high-school basketball team — diverse students all somehow getting along, getting a good education, forming their own opinions. The sport, the passion for it, and the execution of the game is a character all by itself.
+              </p>
+              <div style="font-family:var(--display); font-size:14px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700;">Dianne Dreyer</div>
+              <div style="font-size:13px; color:var(--muted); margin-top:4px; font-style:italic;">Producer and Screenwriter</div>
+            </div>
+            <div class="otnk-praise-card reveal" style="padding:0 32px; border-right:1px solid rgba(0,0,0,0.08);">
+              <p style="font-size:17px; line-height:1.6; margin:0 0 20px; color:#23201b;">
+                David Meyers’ novel is about ordinary young Americans trying to navigate both the extraordinary uncertainties and anxieties of the late 1960s and the timeless ones of school, friendship, rivalry, and what it means to be a team and a teammate. It is poignant, funny, and rings as true as can be.
+              </p>
+              <div style="font-family:var(--display); font-size:14px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700;">John McNeill</div>
+              <div style="font-size:13px; color:var(--muted); margin-top:4px; font-style:italic;">Professor of History, Georgetown University; Former President of the American Historical Association</div>
+            </div>
+            <div class="otnk-praise-card reveal" style="padding:0 32px;">
+              <p style="font-size:17px; line-height:1.6; margin:0 0 20px; color:#23201b;">
+                This book brings to life the joy and wonder of youth. It's easy to forget how much fun it was to be in high school, but this book won't let you. Every page is filled with keen insight into the intensity of youthful relationships of all sorts: with best friends, crushes, teammates and teachers you love and hate. And at its core, the novel is about the virtue of kindness in a challenging world.
+              </p>
+              <div style="font-family:var(--display); font-size:14px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700;">Alan Paul</div>
+              <div style="font-size:13px; color:var(--muted); margin-top:4px; font-style:italic;">Best-selling author of One Way Out; Senior Basketball Writer, Slam</div>
             </div>
           </div>
         </section>

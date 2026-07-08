@@ -78,8 +78,9 @@ Supporting (used inline, not tokenized):
 
 ## Adding a new page
 
-Copy the shell from `reviews.html` / `characters.html`: same `<head>` (update
-title + OG), `<link rel="stylesheet" href="styles.css">`, the `otnk-js` head
-script, the sticky `<header>` (wordmark → `index.html`, the 3-link nav with the
-current tab marked `aria-current="page"`), the `<footer>`, and the year + menu +
-reveal `<script>` block.
+The site is a single page (`index.html`); the header nav scrolls to sections.
+If a separate page is ever needed, copy the shell from `index.html`: same
+`<head>` (update title + OG), `<link rel="stylesheet" href="styles.css">`, the
+`otnk-js` head script, the sticky `<header>` (wordmark → `index.html`, nav links
+back to the home sections), the `<footer>`, and the year + menu + reveal
+`<script>` block.
