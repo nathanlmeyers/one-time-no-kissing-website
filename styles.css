@@ -63,7 +63,7 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
   --bw: var(--cover-w);
   --bh: calc(var(--cover-w) * 1767 / 1154);
   --bd: var(--book-depth);
-  --book-ry: 29deg;
+  --book-ry: 38deg;
   --book-rx: 4deg;
   transform: rotateX(var(--book-rx)) rotateY(var(--book-ry));
   transition: transform .5s cubic-bezier(.22,1,.36,1);
@@ -157,7 +157,7 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
   --subtitle-size: 24px;
   --body-size: 20px;
   --cover-w: 440px;
-  --book-depth: 42px;
+  --book-depth: 48px;
   --cover-justify: center;
   --cover-order: 0;
   --section-pad-x: var(--pad-x);
@@ -183,7 +183,7 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
     --hero-align: start;
     --title-size: 68px !important;
     --cover-w: 320px !important;
-    --book-depth: 34px;
+    --book-depth: 39px;
     --cover-justify: center;
     --cover-order: -1;
     --email-card-pad: 32px;
@@ -207,7 +207,7 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
     --subtitle-size: 19px;
     --body-size: 17px;
     --cover-w: 240px !important;
-    --book-depth: 26px;
+    --book-depth: 30px;
     --email-card-pad: 24px;
     --email-h-size: 26px;
     --about-figure-cols: 1fr;
@@ -328,7 +328,7 @@ html.otnk-js .otnk-root.scrolled header {
 }
 
 /* Hover: turn the book a little further to show more of the spine */
-.otnk-root.otnk-tilt .hero-rise.d6:hover .otnk-cover { --book-ry: 40deg; --book-rx: 3deg; }
+.otnk-root.otnk-tilt .hero-rise.d6:hover .otnk-cover { --book-ry: 46deg; --book-rx: 3deg; }
 
 /* Living court: draw-in on load + scroll parallax (enabled by JS) */
 .otnk-root.otnk-court main > svg { transition: transform .1s linear; will-change: transform; }
@@ -378,7 +378,7 @@ html.otnk-js .otnk-root.scrolled header {
   .otnk-root header, #otnk-email-input { transition: none !important; }
   /* keep the static 3D book, but no motion (hover doesn't turn it) */
   .otnk-cover { transition: none !important; }
-  .otnk-root.otnk-tilt .hero-rise.d6:hover .otnk-cover { --book-ry: 29deg; --book-rx: 4deg; }
+  .otnk-root.otnk-tilt .hero-rise.d6:hover .otnk-cover { --book-ry: 38deg; --book-rx: 4deg; }
   .otnk-root.otnk-court main > svg g { animation: none !important; stroke-dasharray: none !important; stroke-dashoffset: 0 !important; }
 }
 
