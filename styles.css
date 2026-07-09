@@ -18,25 +18,10 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 }
 
 /* book site polish */
-.otnk-cta { transition: filter .15s ease, transform .15s ease, background .15s ease; }
-.otnk-cta:hover { filter: brightness(1.18); transform: translateY(-1px); }
-.otnk-cta-outline { transition: background .15s ease, transform .15s ease; }
-.otnk-cta-outline:hover { background: rgba(0,0,0,0.04); transform: translateY(-1px); }
 .otnk-nav { display: flex; align-items: center; }
 .otnk-nav a { cursor: pointer; transition: color .15s ease; text-decoration: none; color: inherit; }
 .otnk-nav a:hover { color: var(--ink); }
-.otnk-cta:focus-visible, .otnk-cta-outline:focus-visible, .otnk-nav a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
-
-/* Boxed Pre-order nav link */
-.otnk-nav a.otnk-nav-cta {
-  border: 1px solid var(--ink);
-  padding: 8px 16px;
-  border-radius: 0;
-  color: var(--ink);
-  transition: background-color .2s ease, color .2s ease;
-}
-.otnk-nav a.otnk-nav-cta:hover { background: var(--ink); color: #fff; }
-.otnk-nav a.otnk-nav-cta::after { display: none; }
+.otnk-nav a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 
 /* Active page indicator */
 .otnk-nav a[aria-current="page"] { color: var(--ink); }
@@ -138,7 +123,6 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
   line-height: 1;
 }
 
-.otnk-form-status { font-size: 14px; color: var(--accent); margin-top: 10px; min-height: 1.2em; }
 .otnk-footer-link { color: inherit; text-decoration: none; }
 .otnk-footer-link:hover { color: var(--ink); }
 
@@ -161,9 +145,6 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
   --cover-justify: center;
   --cover-order: 0;
   --section-pad-x: var(--pad-x);
-  --email-card-pad: 36px 48px;
-  --email-cols: 1fr 1.2fr;
-  --email-h-size: 38px;
   --praise-cols: repeat(3, 1fr);
   --about-cols: 1fr 2fr;
   --about-figure-cols: 200px 1fr;
@@ -186,9 +167,6 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
     --book-depth: 39px;
     --cover-justify: center;
     --cover-order: -1;
-    --email-card-pad: 32px;
-    --email-cols: 1fr;
-    --email-h-size: 32px;
     --praise-cols: 1fr;
     --about-cols: 1fr;
     --about-h-size: 48px;
@@ -208,8 +186,6 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
     --body-size: 17px;
     --cover-w: 240px !important;
     --book-depth: 30px;
-    --email-card-pad: 24px;
-    --email-h-size: 26px;
     --about-figure-cols: 1fr;
     --about-h-size: 40px;
     --header-pad: 18px 20px;
@@ -239,7 +215,6 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
   }
   .otnk-menu-toggle[aria-expanded="true"] + .otnk-nav { display: flex; }
   .otnk-nav a { padding: 8px 0; font-size: 14px; }
-  .otnk-nav a.otnk-nav-cta { padding: 8px 16px; }
 }
 
 @container (max-width: 900px) {
@@ -254,7 +229,7 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
    ============================================================ */
 
 /* Anchor fix: sticky header no longer overlaps jumped-to sections */
-#book, #praise, #about, #preorder { scroll-margin-top: 92px; }
+#book, #praise, #about { scroll-margin-top: 92px; }
 
 /* Hero load reveal — CSS only, staggered */
 html.otnk-js .hero-rise {
@@ -298,18 +273,6 @@ html.otnk-js .otnk-praise-card.reveal:nth-child(3).is-visible { transition-delay
 }
 .otnk-nav a:hover::after, .otnk-nav a:focus-visible::after { transform: scaleX(1); }
 
-/* CTA arrow nudge */
-.otnk-arrow { display: inline-block; transition: transform .2s ease; }
-.otnk-cta:hover .otnk-arrow,
-.otnk-cta-outline:hover .otnk-arrow { transform: translateX(5px); }
-
-/* Email input focus ring */
-#otnk-email-input { transition: border-color .15s ease, box-shadow .15s ease; }
-#otnk-email-input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(122,58,26,0.14);
-}
-
 /* Condensing sticky header on scroll */
 .otnk-root header {
   transition: padding .28s ease, background-color .28s ease,
@@ -339,30 +302,6 @@ html.otnk-js .otnk-root.scrolled header {
 }
 @keyframes otnkCourtDraw { to { stroke-dashoffset: 0; } }
 
-/* Hero CTAs: small "coming soon" corner badge */
-.otnk-badged { position: relative; }
-.otnk-soon {
-  position: absolute; top: -9px; right: -9px;
-  background: var(--accent); color: #fdf5e2;
-  font-family: var(--display); font-weight: 700;
-  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
-  padding: 3px 7px; border-radius: 2px; line-height: 1;
-  box-shadow: 0 4px 12px -6px rgba(20,14,6,0.55);
-  pointer-events: none; white-space: nowrap;
-}
-
-/* Single-column hero: center the Pre-Order / Goodreads buttons */
-@container (max-width: 900px) {
-  .hero-rise.d5 { justify-content: center; }
-}
-
-/* Email signup: stack input + button on narrow screens */
-@container (max-width: 540px) {
-  .otnk-email { flex-direction: column; gap: 10px; }
-  .otnk-email #otnk-email-input { border-right: 1px solid rgba(0,0,0,0.18) !important; }
-  .otnk-email button { width: 100%; }
-}
-
 /* Respect reduced-motion: no transforms, no animation, instant reveal */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -374,8 +313,8 @@ html.otnk-js .otnk-root.scrolled header {
     animation: none !important;
     transition: none !important;
   }
-  .otnk-nav a::after, .otnk-arrow,
-  .otnk-root header, #otnk-email-input { transition: none !important; }
+  .otnk-nav a::after,
+  .otnk-root header { transition: none !important; }
   /* keep the static 3D book, but no motion (hover doesn't turn it) */
   .otnk-cover { transition: none !important; }
   .otnk-root.otnk-tilt .hero-rise.d6:hover .otnk-cover { --book-ry: 38deg; --book-rx: 4deg; }
