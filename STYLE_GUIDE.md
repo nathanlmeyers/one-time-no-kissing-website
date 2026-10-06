@@ -42,22 +42,20 @@ Supporting (used inline, not tokenized):
 
 ## Shape & spacing
 
-- **Corners are square.** Buttons, inputs, and the boxed Pre-order nav link all
-  use `border-radius: 0`. The only rounding anywhere is the 2px "coming soon"
-  badge. Do not introduce pills/rounded cards.
+- **Corners are square.** Buttons and cards use `border-radius: 0`. Do not
+  introduce pills/rounded cards.
 - Section padding: vertical 48–80px, horizontal `var(--section-pad-x)`.
 - Dividers are 1px hairlines in `rgba(0,0,0,0.08)`.
 
 ## Components
 
-- **Primary CTA** (`.otnk-cta`): accent background, `#fdf5e2` text, square,
-  uppercase, brightens + lifts 1px on hover.
-- **Secondary CTA** (`.otnk-cta-outline`): transparent with border, subtle fill on hover.
-- **Boxed nav link** (`.otnk-nav-cta`): 1px `--ink` border, square, inverts to
-  ink-fill / white-text on hover. Used for "Pre-order".
-- **Active nav tab** (`a[aria-current="page"]`): shows the underline at full width.
-- **Review card** (`.otnk-praise-card`): 17px text, name in `--display` uppercase,
-  role italic in `--muted`; column dividers collapse to stacked rows ≤900px.
+- **Outline button** (`.otnk-btn-outline`): 1px `--ink` border, square,
+  uppercase display face, inverts to ink-fill / white-text on hover. Used for
+  "Show all reviews" and the 404 page link.
+- **Review tile** (`.otnk-review-tile`, built by `reviews.js`): 17px text, name
+  in `--display` uppercase, role italic in `--muted`. 3 columns on desktop,
+  2 on tablet, 1 on mobile. Below `900px` the grid starts collapsed to six
+  tiles behind a "Show all N reviews" button; desktop always shows every tile.
 
 ## Layout & responsiveness
 
@@ -65,7 +63,7 @@ Supporting (used inline, not tokenized):
 - Responsiveness uses **container queries** on `.otnk-frame`, not media queries.
   Breakpoints: tablet `≤900px`, mobile `≤540px`. Adjust the layout tokens on
   `.otnk-root` rather than writing one-off rules.
-- Nav collapses into a hamburger dropdown at `≤540px`.
+- The nav is two inline links at every width (no hamburger).
 
 ## Motion
 

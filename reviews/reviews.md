@@ -1,9 +1,9 @@
 # One Time, No Kissing — Published Reviews
 
 These are the reviews currently shown on the website, exactly as published —
-third-party names reduced to initials. The Reviews page shows all of them; the
-home page "Praise" section shows the first three. (Reviewers without a listed
-role appear as "Anonymous".)
+third-party names reduced to initials. All of them appear in the "What readers
+are saying" grid on the single home page. (Reviewers without a listed role
+appear as "Anonymous".)
 
 This is a snapshot for reference; the live source of truth is `reviews.js`.
 
@@ -122,3 +122,11 @@ I was the last guy cut when I tried out for Peabody varsity. I still remember th
 I could go on but, your awakening to Viet Nam and how people have so much in common if we just take the time to look....suffice to say, I greatly enjoyed what you have written and my only question is,
 
 So, what happens now?
+
+---
+
+**Edie Reba Murphy** — Physical Therapist; Allderdice Alumna
+
+One Time, No Kissing, is an ambitious, emotionally rich coming-of-age novel that follows seventeen-year-old Dave through his senior year at Allderdice High School in 1969-1970. This is where kids from 3 different Pittsburgh neighborhoods and social classes experience cultural diversity, especially if they play basketball. Dave lives in the middle class mostly Jewish Squirrel Hill neighborhood, but he has a rich multi-cultural experience due to his passion for basketball. As the one shorter white guy on the school team, he helps a black teammate stand out to college team recruiters. He learns more about the Holocaust through relationships with elders in the community and more about the Vietnam War from a teammate from an adjacent white working class-neighborhood. All of this happens while navigating the yearnings, and insecurities of an adolescent crush, and while living with a well-meaning but emotionally distant family. It was a page turner for me. While all of this was happening, a main “character” was basketball itself. I learned much more about the strategy of the game than I already knew as a Warriors fan of many seasons.
+
+If you like coming-of-age stories and basketball, this is a read you will love.
