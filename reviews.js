@@ -19,6 +19,8 @@
   'use strict';
 
   var PREVIEW_WORDS = 100;
+  // Tiles shown before "Show all" on tablet/mobile (CSS ignores this on desktop).
+  var COLLAPSED_COUNT = 6;
 
   var REVIEWS = [
     /* ---- the three reviews already on the site (kept first) ---- */
@@ -153,6 +155,14 @@
       title: 'Artist, New York City',
       text: [
         `To simply say I loved One Time, No Kissing would hardly be enough. Just this morning I started skimming over pages to refresh my memory to find a starting point and I ended up re-reading 25 pages. It’s a book I could easily read twice and I will certainly read it again. It’s such a great story on so many levels. The story, the characters, descriptive passages of people places and things. And the basketball is a story by itself. The characters are described so well that they become very real and familiar. Dave’s great pal Louis, the drunken coach, Lovener and the Imperials. and so many more. I loved reading about Pittsburgh. David Meyers novel One Time, No Kissing is a wonderful story to share with the world.`
+      ]
+    },
+    {
+      name: 'Edie Reba Murphy',
+      title: 'Physical Therapist; Allderdice Alumna',
+      text: [
+        `One Time, No Kissing, is an ambitious, emotionally rich coming-of-age novel that follows seventeen-year-old Dave through his senior year at Allderdice High School in 1969-1970. This is where kids from 3 different Pittsburgh neighborhoods and social classes experience cultural diversity, especially if they play basketball. Dave lives in the middle class mostly Jewish Squirrel Hill neighborhood, but he has a rich multi-cultural experience due to his passion for basketball. As the one shorter white guy on the school team, he helps a black teammate stand out to college team recruiters. He learns more about the Holocaust through relationships with elders in the community and more about the Vietnam War from a teammate from an adjacent white working class-neighborhood. All of this happens while navigating the yearnings, and insecurities of an adolescent crush, and while living with a well-meaning but emotionally distant family. It was a page turner for me. While all of this was happening, a main “character” was basketball itself. I learned much more about the strategy of the game than I already knew as a Warriors fan of many seasons.`,
+        `If you like coming-of-age stories and basketball, this is a read you will love.`
       ]
     }
   ];
@@ -330,6 +340,27 @@
     container.removeAttribute('style');
     container.classList.add('otnk-review-grid');
     container.replaceChildren(frag);
+
+    // Collapse the long list on small screens behind a "Show all" button.
+    // The CSS only honours the collapsed class below the desktop breakpoint.
+    if (REVIEWS.length > COLLAPSED_COUNT) {
+      container.classList.add('otnk-review-grid--collapsed');
+      var showAll = el('button', 'otnk-btn-outline otnk-review-showall',
+        'Show all ' + REVIEWS.length + ' reviews');
+      showAll.type = 'button';
+      showAll.addEventListener('click', function () {
+        container.classList.remove('otnk-review-grid--collapsed');
+        showAll.remove();
+        // Hand focus to the first newly revealed tile so keyboard and
+        // screen-reader users land where the new content starts.
+        var next = container.children[COLLAPSED_COUNT];
+        if (next) {
+          if (!next.hasAttribute('tabindex') && next.tagName !== 'BUTTON') next.tabIndex = -1;
+          next.focus({ preventScroll: true });
+        }
+      });
+      container.insertAdjacentElement('afterend', showAll);
+    }
 
     // Build the modal up front so the first open can focus it synchronously
     // (focusing a freshly-created element the same tick can silently fail).

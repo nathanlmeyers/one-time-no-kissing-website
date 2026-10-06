@@ -18,7 +18,7 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 }
 
 /* book site polish */
-.otnk-nav { display: flex; align-items: center; }
+.otnk-nav { display: flex; align-items: center; gap: 28px; }
 .otnk-nav a { cursor: pointer; transition: color .15s ease; text-decoration: none; color: inherit; }
 .otnk-nav a:hover { color: var(--ink); }
 .otnk-nav a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
@@ -27,18 +27,6 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 .otnk-nav a[aria-current="page"] { color: var(--ink); }
 .otnk-nav a[aria-current="page"]::after { transform: scaleX(1); }
 
-/* Mobile menu toggle (hamburger) — hidden by default, shown at mobile via container query */
-.otnk-menu-toggle {
-  display: none;
-  background: transparent;
-  border: 0;
-  padding: 10px;
-  margin: -10px;
-  color: var(--ink);
-  cursor: pointer;
-  line-height: 0;
-}
-.otnk-menu-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 /* ---- 3D book: watertight cuboid (stable, no per-pixel parallax) ---- */
 .hero-rise.d6 { perspective: 1600px; perspective-origin: 50% 44%; }
 .otnk-cover {
@@ -53,14 +41,17 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
   transform: rotateX(var(--book-rx)) rotateY(var(--book-ry));
   transition: transform .5s cubic-bezier(.22,1,.36,1);
 }
-/* every face is centred on the cube centre, then pushed out by a half-extent */
-.otnk-cover > img,
+/* every face is centred on the cube centre, then pushed out by a half-extent.
+   The cover <img> sits inside a <picture> (WebP + PNG fallback); the picture
+   generates no box so the img positions against .otnk-cover directly. */
+.otnk-cover > picture { display: contents; }
+.otnk-cover img,
 .otnk-edge {
   position: absolute;
   backface-visibility: hidden;
   outline: 1px solid transparent; /* kills sub-pixel seam shimmer */
 }
-.otnk-cover > img {
+.otnk-cover img {
   inset: 0;
   transform: translateZ(calc(var(--bd) / 2));
   box-shadow: 0 0 0 1px rgba(20,14,6,0.06);
@@ -167,7 +158,7 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
     --book-depth: 39px;
     --cover-justify: center;
     --cover-order: -1;
-    --praise-cols: 1fr;
+    --praise-cols: repeat(2, 1fr);
     --about-cols: 1fr;
     --about-h-size: 48px;
     --header-pad: 22px 36px;
@@ -186,6 +177,7 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
     --body-size: 17px;
     --cover-w: 240px !important;
     --book-depth: 30px;
+    --praise-cols: 1fr;
     --about-figure-cols: 1fr;
     --about-h-size: 40px;
     --header-pad: 18px 20px;
@@ -199,25 +191,14 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
     height: auto !important;
     justify-self: center;
   }
-  /* Hamburger appears, nav becomes a togglable dropdown panel */
-  .otnk-menu-toggle { display: inline-flex; }
-  .otnk-nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0; right: 0;
-    flex-direction: column;
-    align-items: flex-start;
-    background: #ffffff;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    padding: 12px 20px 20px;
-    gap: 18px;
-  }
-  .otnk-menu-toggle[aria-expanded="true"] + .otnk-nav { display: flex; }
-  .otnk-nav a { padding: 8px 0; font-size: 14px; }
+  /* Two links fit inline beside the wordmark; no hamburger needed. */
+  .otnk-nav { gap: 20px; }
+  .otnk-nav a { padding: 8px 0; }
 }
 
+/* Static (no-JS) praise cards stack below the desktop breakpoint. */
 @container (max-width: 900px) {
+  #otnk-reviews:not(.otnk-review-grid) { grid-template-columns: 1fr !important; }
   .otnk-praise-card { border-right: none !important; }
   .otnk-praise-card:not(:last-child) { border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 28px; margin-bottom: 28px; }
 }
@@ -405,6 +386,37 @@ html.otnk-js .otnk-root.scrolled header {
 /* Reveal stagger across rows (mod-3) — own rule, not the praise-card one */
 html.otnk-js .otnk-review-tile.reveal:nth-child(3n+2).is-visible { transition-delay: .08s; }
 html.otnk-js .otnk-review-tile.reveal:nth-child(3n+3).is-visible { transition-delay: .16s; }
+
+/* ---- Collapsed grid (tablet/mobile only) ----
+   Below the desktop breakpoint the full list makes the page a dozen screens
+   tall, so reviews.js marks the grid collapsed and adds a "Show all" button.
+   Desktop ignores the class and always shows every tile. */
+/* Outline button: square, uppercase display face, inverts on hover.
+   Used by the "Show all reviews" control and the 404 page link. */
+.otnk-btn-outline {
+  display: inline-block;
+  padding: 14px 26px;
+  background: transparent;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .18s ease, color .18s ease;
+}
+.otnk-btn-outline:hover { background: var(--ink); color: #ffffff; }
+.otnk-btn-outline:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.otnk-review-showall { display: none; margin: 28px auto 0; }
+@container (max-width: 900px) {
+  .otnk-review-grid--collapsed .otnk-review-tile:nth-child(n + 7) { display: none; }
+  .otnk-review-grid--collapsed + .otnk-review-showall { display: block; }
+}
 
 /* ---- Modal (injected as a direct <body> child; :root tokens only) ---- */
 .otnk-modal {
