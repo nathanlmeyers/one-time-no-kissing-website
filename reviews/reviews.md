@@ -125,7 +125,7 @@ So, what happens now?
 
 ---
 
-**Edie Reba Murphy** — Physical Therapist; Allderdice Alumna
+**Edie Reba** — Physical Therapist, Oakland, California
 
 One Time, No Kissing, is an ambitious, emotionally rich coming-of-age novel that follows seventeen-year-old Dave through his senior year at Allderdice High School in 1969-1970. This is where kids from 3 different Pittsburgh neighborhoods and social classes experience cultural diversity, especially if they play basketball. Dave lives in the middle class mostly Jewish Squirrel Hill neighborhood, but he has a rich multi-cultural experience due to his passion for basketball. As the one shorter white guy on the school team, he helps a black teammate stand out to college team recruiters. He learns more about the Holocaust through relationships with elders in the community and more about the Vietnam War from a teammate from an adjacent white working class-neighborhood. All of this happens while navigating the yearnings, and insecurities of an adolescent crush, and while living with a well-meaning but emotionally distant family. It was a page turner for me. While all of this was happening, a main “character” was basketball itself. I learned much more about the strategy of the game than I already knew as a Warriors fan of many seasons.
 
