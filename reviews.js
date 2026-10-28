@@ -164,6 +164,17 @@
         `One Time, No Kissing, is an ambitious, emotionally rich coming-of-age novel that follows seventeen-year-old Dave through his senior year at Allderdice High School in 1969-1970. This is where kids from 3 different Pittsburgh neighborhoods and social classes experience cultural diversity, especially if they play basketball. Dave lives in the middle class mostly Jewish Squirrel Hill neighborhood, but he has a rich multi-cultural experience due to his passion for basketball. As the one shorter white guy on the school team, he helps a black teammate stand out to college team recruiters. He learns more about the Holocaust through relationships with elders in the community and more about the Vietnam War from a teammate from an adjacent white working class-neighborhood. All of this happens while navigating the yearnings, and insecurities of an adolescent crush, and while living with a well-meaning but emotionally distant family. It was a page turner for me. While all of this was happening, a main “character” was basketball itself. I learned much more about the strategy of the game than I already knew as a Warriors fan of many seasons.`,
         `If you like coming-of-age stories and basketball, this is a read you will love.`
       ]
+    },
+    {
+      name: 'Joe Diamond',
+      text: [
+        `David Meyers’ book One Time, No Kissing is a revelation. I don’t mean it reveals a special unknown history of Pittsburgh in the early 1970s or tells secrets about a family or neighborhood that may be best kept. What I mean is that it is a truthful and artistic rendering of the foundations of his life to come.`,
+        `I love the way it starts: “So, what happens is this:” Just like a high school student would start a story. This at first naive and then knowing teenage voice is sustained throughout and over the course of the story, which is based on the author’s high school experience, matures in ways that reminded me of my young life.`,
+        `My wife and I read the book to each other out loud, at first to help each other get into it, and over the course of its pages, to relish and absorb together the story, the characters, the time and place of its setting, and the arc of the lessons and little epiphanies the main character experiences along the way.`,
+        `We dog-eared pages – virtually every other – so that we could re-read later catchy turns of phrase, plot twists, and funny laugh out loud parts powered by high school irreverence or revisit characters. We found ourselves (potential spoiler alert) asking “What happens to Eugene?” or “What is the story with that girl?” and many more.`,
+        `Like many books in this genre, this one features the coming-of-age story of its main character. What sets One Time, No Kissing apart is how authentic and relatable this book is. It inspired memories of high school that I have not accessed in years and helped me to put them in perspective and appreciate them, at this remove, as watershed moments.`,
+        `Thank you David Meyers for One Time, No Kissing.`
+      ]
     }
   ];
 
