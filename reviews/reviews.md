@@ -146,3 +146,9 @@ We dog-eared pages – virtually every other – so that we could re-read later 
 Like many books in this genre, this one features the coming-of-age story of its main character. What sets One Time, No Kissing apart is how authentic and relatable this book is. It inspired memories of high school that I have not accessed in years and helped me to put them in perspective and appreciate them, at this remove, as watershed moments.
 
 Thank you David Meyers for One Time, No Kissing.
+
+---
+
+**James B. Lieber** — Attorney, Pittsburgh
+
+In One Time, No Kissing, Dave Meyers has produced a gem of a book that amply captures a time and place namely Squirrel Hill (Pittsburgh) in the late sixties and early seventies. Famed for his cross-over dribble and no-look passes, Dave shows how a team was put together and finally gelled in a sweet time when we could still overcome thorny issues involving race and love. There was terror too especially when Dave’s beloved father, a baby doctor, was arrested for providing choice to young women. Smoothly written, One Time, No Kissing brings back memories about the hardwood, and hard-earned lessons about growing up. It is story to be savored.
