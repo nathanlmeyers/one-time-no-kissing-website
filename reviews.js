@@ -187,7 +187,7 @@
       name: 'Ed Diamond',
       title: 'Pulmonary Physician and Former President of the Cheat Foundation',
       text: [
-        `David Meyers’ novel, One Time, No Kissing, brings to life a number of unique and unforgettable characters. Once I began to understand the characters, the novel took off for me. I read it in two sittings as I could not put it down. Meyers was able to intertwine several interesting stories – the basketball team’s season, a teacher’s support of a troubled black player, old Jewish people affected by the holocaust trying to restart their lives, an obstetrician prosecuted for performing an abortion, a wounded Vietnam veteran coping with his war experiences, and the main character’s social/sexual awakening. I was interested in each of these stories. To me, the short length of the book is a positive. It is concisely and powerfully written. I loved the fact that it was such a quick read.`
+        `David Meyers’ novel, One Time, No Kissing, brings to life a number of unique and unforgettable characters. Once I began to understand the characters, the novel took off for me. I read it in two sittings as I could not put it down. Meyers was able to intertwine several interesting stories – the basketball team’s season, a teacher’s support of a troubled black player, old Jewish people affected by the Holocaust trying to restart their lives, an obstetrician prosecuted for performing an abortion, a wounded Vietnam veteran coping with his war experiences, and the main character’s social/sexual awakening. I was interested in each of these stories. To me, the short length of the book is a positive. It is concisely and powerfully written. I loved the fact that it was such a quick read.`
       ]
     }
   ];
