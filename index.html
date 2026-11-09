@@ -4,21 +4,23 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>One Time, No Kissing — A Novel by David Meyers</title>
-  <meta name="description" content="One Time, No Kissing is a work of autofiction set during three months of the 1968–69 basketball season at a public high school in Pittsburgh — a coming-of-age story about kindness in a challenging world. A debut novel by David Meyers, coming Fall 2026." />
+  <meta name="description" content="David Meyers’ debut novel, out now. Set in the 1968–69 basketball season at a Pittsburgh high school: a coming-of-age story about kindness in a challenging world." />
   <meta name="author" content="David Meyers" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="canonical" href="https://onetimenokissing.com/" />
 
   <!-- Open Graph / social cards. Image URLs must be absolute: Facebook,
-       iMessage, LinkedIn and X all ignore relative paths. -->
+       iMessage, LinkedIn and X all ignore relative paths. og-card.jpg is a
+       1200x630 landscape card (cover centred on white) so the portrait cover
+       is not cropped to a 1.91:1 / 2:1 crop by Facebook, LinkedIn and X. -->
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://onetimenokissing.com/" />
   <meta property="og:title" content="One Time, No Kissing — A Novel by David Meyers" />
-  <meta property="og:description" content="One Time, No Kissing is a work of autofiction set during three months of the 1968–69 basketball season at a public high school in Pittsburgh — a coming-of-age story about kindness in a challenging world. Coming Fall 2026." />
-  <meta property="og:image" content="https://onetimenokissing.com/assets/cover.png" />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="1154" />
-  <meta property="og:image:height" content="1767" />
+  <meta property="og:description" content="David Meyers’ debut novel, out now. Set in the 1968–69 basketball season at a Pittsburgh high school: a coming-of-age story about kindness in a challenging world." />
+  <meta property="og:image" content="https://onetimenokissing.com/assets/og-card.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Book cover for One Time, No Kissing by David Meyers" />
   <meta property="og:site_name" content="David Meyers" />
   <meta property="og:locale" content="en_US" />
@@ -28,8 +30,8 @@
   <!-- Twitter card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="One Time, No Kissing — A Novel by David Meyers" />
-  <meta name="twitter:description" content="A work of autofiction set in the 1968–69 basketball season at a Pittsburgh high school — a coming-of-age story about kindness. Coming Fall 2026." />
-  <meta name="twitter:image" content="https://onetimenokissing.com/assets/cover.png" />
+  <meta name="twitter:description" content="David Meyers’ debut novel, out now. Set in the 1968–69 basketball season at a Pittsburgh high school: a coming-of-age story about kindness in a challenging world." />
+  <meta name="twitter:image" content="https://onetimenokissing.com/assets/og-card.jpg" />
   <meta name="twitter:image:alt" content="Book cover for One Time, No Kissing by David Meyers" />
 
   <!-- Favicons: a basketball glyph. SVG for modern browsers, PNG for Safari
@@ -53,15 +55,17 @@
     "url": "https://onetimenokissing.com/",
     "inLanguage": "en",
     "datePublished": "2026",
-    "image": "https://onetimenokissing.com/assets/cover.png",
+    "image": "https://onetimenokissing.com/assets/cover.jpg",
     "description": "One Time, No Kissing is a work of autofiction set during three months of the 1968–69 basketball season at a public high school in Pittsburgh — a coming-of-age story, told by a member of the team, about kindness in a challenging world.",
     "genre": ["Fiction", "Coming-of-age", "Historical fiction"]
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+  <!-- Self-hosted fonts (latin subset, variable weight). Preloading the two
+       faces used above the fold lets the hero text paint without a second
+       round trip; the italics load on demand from styles.css. -->
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin>
   <!-- Preload the WebP cover (the LCP element). Browsers without WebP skip
        this preload because of the type and fall through to the PNG below. -->
   <link rel="preload" as="image" href="assets/cover.webp" type="image/webp" fetchpriority="high">
@@ -76,7 +80,7 @@
     <div class="otnk-root" style="width:100%; min-height:100%; background:#ffffff; position:relative;">
 
       <header style="position:sticky; top:0; z-index:10; display:flex; justify-content:space-between; align-items:center; padding:var(--header-pad); border-bottom:1px solid rgba(0,0,0,0.08); background:#ffffff;">
-        <div style="font-family:var(--display); font-size:18px; font-weight:700; letter-spacing:-.01em;">David Meyers</div>
+        <a href="#" style="font-family:var(--display); font-size:18px; font-weight:700; letter-spacing:-.01em; color:inherit; text-decoration:none;">David Meyers</a>
         <nav id="otnk-nav" class="otnk-nav" aria-label="Sections" style="font-size:13px; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase;">
           <a href="#">Home</a>
           <a href="#praise">Reviews</a>
@@ -117,7 +121,7 @@
         <section id="book" style="position:relative; z-index:1; display:grid; grid-template-columns:var(--hero-cols); gap:var(--hero-gap); padding:var(--hero-pad); align-items:var(--hero-align);">
           <div style="min-width:0;">
             <div class="hero-rise d1" style="font-size:12px; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); margin-bottom:28px; font-family:var(--display); font-weight:600;">
-              A Novel · Fall 2026
+              A Novel · Out Now
             </div>
             <h1 class="hero-rise d2" style="font-family:var(--display); font-size:var(--title-size); line-height:0.92; font-weight:700; margin:0 0 18px; letter-spacing:-0.01em;">
               One Time,<br />No Kissing
@@ -125,15 +129,18 @@
             <div class="hero-rise d3" style="font-family:var(--display); font-size:var(--subtitle-size); color:var(--muted); margin-bottom:36px; font-weight:500;">
               The Court as the Crossroads
             </div>
-            <p class="hero-rise d4" style="font-size:16px; line-height:1.62; color:#23201b; margin:0 0 32px; max-width:600px;">
+            <p class="hero-rise d4" style="font-size:var(--body-size); line-height:1.62; color:#23201b; margin:0 0 32px; max-width:600px;">
               <b>One Time, No Kissing</b> is a work of autofiction set during three months of the 1968–69 basketball season at a public high school in Pittsburgh. It is a coming-of-age story told by a member of the team whose life takes some unexpected turns, colliding with many serious issues of the day: the Vietnam War, racial injustice, demographic tensions, women’s rights, and the lingering effect of the Holocaust. The major and minor plot lines arise in surprising and often humorous ways, and are resolved in a positive way, largely due to acts of kindness. In the words of one reader, "at its core <b>One Time, No Kissing</b> is about the virtue of kindness in a challenging world."
+            </p>
+            <p class="hero-rise d5" style="font-size:13px; color:var(--muted); font-style:italic; letter-spacing:.01em; margin:0;">
+              Available by request — <a class="otnk-inline-link" href="mailto:onetimenokissing.book@gmail.com">onetimenokissing.book@gmail.com</a>
             </p>
           </div>
           <div class="hero-rise d6" style="display:flex; justify-content:var(--cover-justify); min-width:0; order:var(--cover-order);">
             <div class="otnk-cover" style="width:var(--cover-w); aspect-ratio:1154/1767; position:relative;">
               <picture>
                 <source srcset="assets/cover.webp" type="image/webp" />
-                <img src="assets/cover.png" width="1154" height="1767" alt='Book cover: "One Time, No Kissing" by David Meyers' style="width:100%; height:100%; display:block; object-fit:cover;" />
+                <img src="assets/cover.jpg" width="1154" height="1767" alt='Book cover: "One Time, No Kissing" by David Meyers' style="width:100%; height:100%; display:block; object-fit:cover;" />
               </picture>
               <span class="otnk-edge otnk-edge-back" aria-hidden="true"></span>
               <span class="otnk-edge otnk-edge-spine" aria-hidden="true"><span>One Time, No Kissing</span></span>

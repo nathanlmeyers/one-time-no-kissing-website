@@ -14,9 +14,11 @@
   <link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+  <!-- Self-hosted fonts (latin subset, variable weight). Preloading the two
+       faces used above the fold lets the hero text paint without a second
+       round trip; the italics load on demand from styles.css. -->
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cormorant-garamond-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/eb-garamond-latin.woff2" crossorigin>
 
   <link rel="stylesheet" href="/styles.css" />
   <script>document.documentElement.classList.add('otnk-js');</script>
@@ -64,7 +66,7 @@
           <h1 class="hero-rise d2" style="font-family:var(--display); font-size:var(--about-h-size); line-height:0.95; font-weight:700; margin:0 0 20px; letter-spacing:-.01em;">
             Out of bounds.
           </h1>
-          <p class="hero-rise d3" style="font-size:17px; line-height:1.62; color:#23201b; margin:0 0 32px;">
+          <p class="hero-rise d3" style="font-size:var(--body-size); line-height:1.62; color:#23201b; margin:0 0 32px;">
             That page isn’t on the court. Head back to the home page to read about the book and what readers are saying.
           </p>
           <a class="hero-rise d4 otnk-btn-outline" href="/">Back to the book</a>
