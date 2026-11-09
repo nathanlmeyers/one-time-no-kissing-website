@@ -6,7 +6,10 @@ values.
 
 ## Typography
 
-Loaded from Google Fonts (Cormorant Garamond + EB Garamond).
+Cormorant Garamond + EB Garamond, self-hosted from `assets/fonts/` (latin-subset
+variable WOFF2, declared with `@font-face` at the top of `styles.css`; no
+third-party font requests). Available weights: Cormorant 400–700 upright and
+italic; EB Garamond 400–800 upright and italic.
 
 | Token | Stack | Use |
 |---|---|---|
@@ -21,23 +24,25 @@ in `--muted` or `--accent`.
 
 **Indicative sizes** (responsive via container-query tokens on `.otnk-root`):
 hero title `--title-size` 86px → 68px → 44px; section headings `--about-h-size`
-56px → 48px → 40px; body `--body-size` 20px → 17px; review text 17px.
+56px → 48px → 40px. Body copy — the hero synopsis, review tiles, the review
+modal, and the 404 message — is `--body-size` (17px at every width). The author
+bio is the one deliberate exception at 18px. Captions and role lines are
+12–13px italic in `--muted`.
 
 ## Color
 
 | Token | Value | Use |
 |---|---|---|
-| `--ink` | `#0d0a06` | Primary text, borders on the boxed nav button |
+| `--ink` | `#0d0a06` | Primary text, outline-button border |
 | `--muted` | `#6a604f` | Secondary text, captions, nav, eyebrows |
-| `--accent` | `#7a3a1a` | Eyebrow labels, links on hover, CTA button background, "coming soon" badge |
+| `--accent` | `#7a3a1a` | Eyebrow labels, "Read full review", inline links |
 
 Supporting (used inline, not tokenized):
 
 - `#ffffff` — page background, header, footer
 - `#23201b` — review / bio paragraph text (slightly softer than `--ink`)
-- `#fdf5e2` — text on the accent CTA button
 - `#f7f2e7` / `#efe7d5` / `#e7ddc6` — book spine / back / page-edge tones
-- Borders & dividers: `rgba(0,0,0,0.08)` (hairlines), `rgba(0,0,0,0.18)` (inputs)
+- Borders & dividers: `rgba(0,0,0,0.08)` (hairlines), `rgba(0,0,0,0.14)` (review grid)
 - Scrolled header: `rgba(255,255,255,0.82)` + 10px backdrop blur
 
 ## Shape & spacing
