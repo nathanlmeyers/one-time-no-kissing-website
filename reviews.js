@@ -182,6 +182,13 @@
       text: [
         `In One Time, No Kissing, Dave Meyers has produced a gem of a book that amply captures a time and place namely Squirrel Hill (Pittsburgh) in the late sixties and early seventies. Famed for his cross-over dribble and no-look passes, Dave shows how a team was put together and finally gelled in a sweet time when we could still overcome thorny issues involving race and love. There was terror too especially when Dave’s beloved father, a baby doctor, was arrested for providing choice to young women. Smoothly written, One Time, No Kissing brings back memories about the hardwood, and hard-earned lessons about growing up. It is story to be savored.`
       ]
+    },
+    {
+      name: 'Ed Diamond',
+      title: 'Pulmonary Physician and Former President of the Cheat Foundation',
+      text: [
+        `David Meyers’ novel, One Time, No Kissing, brings to life a number of unique and unforgettable characters. Once I began to understand the characters, the novel took off for me. I read it in two sittings as I could not put it down. Meyers was able to intertwine several interesting stories – the basketball team’s season, a teacher’s support of a troubled black player, old Jewish people affected by the Holocaust trying to restart their lives, an obstetrician prosecuted for performing an abortion, a wounded Vietnam veteran coping with his war experiences, and the main character’s social/sexual awakening. I was interested in each of these stories. To me, the short length of the book is a positive. It is concisely and powerfully written. I loved the fact that it was such a quick read.`
+      ]
     }
   ];
 
