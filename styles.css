@@ -309,10 +309,13 @@ html.otnk-js .otnk-root.scrolled header {
    ============================================================ */
 
 /* Connected hairline grid: container draws top+left, tiles draw
-   right+bottom. Robust to any tile count (no empty-cell artifacts). */
+   right+bottom. Robust to any tile count (no empty-cell artifacts).
+   White background so a trailing empty cell hides the court lines
+   instead of showing a stray rectangle through the grid. */
 .otnk-review-grid {
   display: grid;
   grid-template-columns: var(--praise-cols);
+  background: #ffffff;
   border-top: 1px solid rgba(0,0,0,0.14);
   border-left: 1px solid rgba(0,0,0,0.14);
 }

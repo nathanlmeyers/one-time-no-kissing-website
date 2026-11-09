@@ -20,8 +20,8 @@ pickup games, civil rights, and the long shadow of Vietnam. Coming Fall 2026.
 - `reviews.js` — the review data and the tile grid + expand modal that renders it
 - `reviews/reviews.md` — human-readable snapshot of the published reviews
 - `styles.css` — shared styles
-- `assets/` — cover art (`cover.webp` with `cover.png` fallback; the PNG is
-  also the social-card image), author photo, favicons
+- `assets/` — cover art (`cover.webp` with `cover.jpg` fallback), `og-card.jpg`
+  (1200×630 social-card image), author photo, favicons
 - `robots.txt`, `sitemap.xml` — crawler hints for the single URL
 - `STYLE_GUIDE.md` — design system (colors, type, spacing) for contributors
 
